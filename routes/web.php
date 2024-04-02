@@ -17,8 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/test', function () {
-    return view('test.test');
+    return view('test.page1');
 });
 
-Route
+Route::get('/page2', function () {
+    return view('test.page2');
+});
+

@@ -19,10 +19,5 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return view('test.page1');
+    return view('main.m_index');
 });
-
-Route::get('/page2', function () {
-    return view('test.page2');
-});
-

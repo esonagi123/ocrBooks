@@ -1,0 +1,43 @@
+body {
+    background: #efe4fd;
+}
+
+.textGrey {
+    color: #8f8f8f;
+}
+
+.avatar {
+    width: 100%;
+}
+
+.mainBtn {
+    height: 135px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 22px;
+}
+
+.mainBanner {
+    background: #9b7aff;
+    color: #FFFFFF;
+}
+
+.mainList {
+    width: 100%;
+    border-radius: 18px;
+    height: 70px;
+    background-color: #FFF;
+}
+
+.botFixedBar {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    z-index: 100;
+    border-top-left-radius: 22px; /* 상단 좌측 모서리에만 반경을 적용 */
+    border-top-right-radius: 22px; /* 상단 우측 모서리에만 반경을 적용 */
+    }

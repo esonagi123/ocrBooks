@@ -22,7 +22,7 @@
     <div class="ms-4 me-4">
       <div class="container">
           <div class="row mt-4 text-center align-items-center" >
-              <div class="col-10">
+              <div class="col-8">
                   <div class="row textGrey fw-medium">
                     환영합니다!
                   </div>
@@ -30,14 +30,22 @@
                     김대현 님
                   </div>
               </div>
-              <div class="col">
-                  <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필">
-              </div>
+              <div class="col text-end">
+                  <div class="dropdown">
+                    <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">마이페이지</a></li>
+                      <li><a class="dropdown-item" href="#">로그아웃</a></li>
+                    </ul>                  
+                  </div>
+                </div>
           </div>
       </div>
       @yield('content')
     </div>
-    <div class="botFixedBar shadow-lg d-flex align-items-center">
+    <div style="margin-top:100px;">
+    </div>
+    <div class="position-fixed botFixedBar shadow-lg d-flex align-items-center">
       <div class="container">
           <div class="row">
               <div class="col-6">
@@ -48,7 +56,7 @@
               </div>  
           </div>      
       </div>
-  </div>
+    </div>
   
   </body>
 </html>

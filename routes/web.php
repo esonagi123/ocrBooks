@@ -18,6 +18,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
+Route::get('/m_main', function () {
     return view('m_main.index');
+});
+
+Route::get('/m_scan', function () {
+    return view('m_books.scan');
 });

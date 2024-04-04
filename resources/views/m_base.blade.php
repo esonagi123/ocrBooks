@@ -43,13 +43,14 @@
       </div>
       @yield('content')
     </div>
-    <div style="margin-top:100px;">
-    </div>
+    <div style="margin-top:100px;"></div>
     <div class="position-fixed botFixedBar shadow-lg d-flex align-items-center">
       <div class="container">
           <div class="row">
               <div class="col-6">
-                <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                <a href="{{ url('/m_main') }}">
+                  <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                </a>
               </div>
               <div class="col-6">
                 <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>

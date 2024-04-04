@@ -115,8 +115,9 @@ a {
 }
 
 .billUpload {
-    background: #9b7aff;
+    /* background: #9b7aff; */
     height: 70px;
+    border: 2px dashed #9b7aff;
     border-radius: 22px;
     margin-bottom: 10px;
 }

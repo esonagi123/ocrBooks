@@ -57,7 +57,7 @@
 <body>
     <div class="container">
         <h2>OCR 가계부 로그인</h2>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="#">
             @csrf
             <label for="id">ID</label>
             <input type="text" id="id" name="id">

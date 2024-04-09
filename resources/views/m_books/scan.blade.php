@@ -15,54 +15,95 @@
             margin-top: 5px;
     }    
 </style>
-<div class="billUpload shadow-lg d-flex justify-content-center mt-4">
-    <div class="row align-items-center">
-        <label for="uploadInput" class="fw-medium text-center fs-5" style="color: #9b7aff;">
-            영수증 첨부하기 &nbsp;<i class="fa-solid fa-images"></i></i>
-        </label>
-        <input type="file" id="uploadInput" multiple style="display: none;">
-    </div> 
+<div class="container mt-4">
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div class="billUpload shadow-lg d-flex justify-content-center mt-4">
+            <div class="row align-items-center">
+                <label for="uploadInput" class="fw-medium text-center fs-5" style="color: #9b7aff;">
+                    영수증 첨부하기 &nbsp;<i class="fa-solid fa-images"></i></i>
+                </label>
+                <input type="file" id="uploadInput" name="files[]" multiple style="display: none;">
+            </div>
+        </div>
+
+        <div class="row mt-4" id="imageContainer"></div>
+
+        <div id="uploadButton" class="position-fixed bottom-0 start-50 translate-middle-x" style="display: none; margin-bottom: 100px;">
+            <button type="submit" class="btn btn-success" style="">업로드</button>
+        </div>
+        
+    </form>
 </div>
-<div class="row mt-4 text-center" id="imageContainer"></div>
 
 <script>
-        const uploadInput = document.getElementById('uploadInput');
-        const imageContainer = document.getElementById('imageContainer');
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
 
-        uploadInput.addEventListener('change', handleFileUpload);
+        fetch('upload.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // 서버에서 온 응답을 콘솔에 출력
+            // 업로드 후 이미지 컨테이너 초기화 등 추가 동작 수행 가능
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
 
-        function handleFileUpload(event) {
-            const files = event.target.files;
-            imageContainer.innerHTML = '';
-            for (let i = 0; i < Math.min(files.length, 6); i++) {
-                const file = files[i];
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.classList.add('uploaded-image-container');
+    const uploadButton = document.getElementById('uploadButton');
+    const uploadInput = document.getElementById('uploadInput');
+    const imageContainer = document.getElementById('imageContainer');
+    
 
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.classList.add('uploaded-image');
+    uploadInput.addEventListener('change', handleFileUpload);
 
-                    const deleteButton = document.createElement('button');
-                    deleteButton.innerHTML = '&times;';
-                    deleteButton.classList.add('delete-button');
-                    deleteButton.addEventListener('click', () => {
-                        imgContainer.remove();
-                    });
+    function handleFileUpload(event) {
+        let count = 0;
+        const files = event.target.files;
+        
+        
 
-                    const fileName = document.createElement('p');
-                    fileName.classList.add('file-name');
-                    fileName.textContent = file.name;
+        imageContainer.innerHTML = '';
+        for (let i = 0; i < Math.min(files.length, 6); i++) {
+            count++;
+            const file = files[i];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('uploaded-image-container');
 
-                    imgContainer.appendChild(img);
-                    imgContainer.appendChild(fileName);
-                    imgContainer.appendChild(deleteButton);
-                    imageContainer.appendChild(imgContainer);
-                }
-                reader.readAsDataURL(file);
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.classList.add('uploaded-image');
+
+                const deleteButton = document.createElement('button');
+                deleteButton.innerHTML = '&times;';
+                deleteButton.classList.add('delete-button');
+                deleteButton.addEventListener('click', () => {
+                    imgContainer.remove();
+                    count--;
+                    if (count == 0) {
+                        uploadButton.style.display = 'none';
+                    }
+                });
+
+                const fileName = document.createElement('p');
+                fileName.classList.add('file-name');
+                fileName.textContent = file.name;
+
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(fileName);
+                imgContainer.appendChild(deleteButton);
+                imageContainer.appendChild(imgContainer);
             }
+            reader.readAsDataURL(file);
         }
-    </script>
+        uploadButton.style.display = 'block';
+
+    }
+</script>
 @endsection()

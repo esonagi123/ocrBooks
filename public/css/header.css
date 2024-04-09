@@ -1,0 +1,128 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+* {
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+body {
+  margin: 0 auto;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Logo {
+  padding: 1rem 0 1rem 0;
+}
+
+.Logo > a > img {
+  box-sizing: border-box;
+  width: 200px;
+  height: 60px;
+  object-fit: contain;
+  margin-top: -10px;
+}
+
+header a {
+  text-decoration: none;
+  color: #000;
+}
+
+.Header-SignUp {
+  display: flex;
+  font-weight: 100;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1rem 1rem 0 0;
+  /*margin-left:69%*/
+}
+
+.Header-catalogue {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Header-catalogue > nav {
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+#gnb {
+  display: flex;
+  padding: 0%;
+  margin: 0;
+  z-index: 999;
+  margin-left: auto;
+}
+
+.dept1 {
+  position: relative;
+  text-align: center;
+}
+
+.dept1 > a {
+  display: block;
+  padding: 1rem 2.4rem;
+}
+
+.inner-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0;
+}
+
+#gnb .dept2 {
+  padding: 1rem 0;
+  color: #555;
+  font-weight: 300;
+  text-align: center;
+}
+
+#gnb .dept2 > a:hover,
+#gnb .dept2 > a:active,
+#gnb .dept2 > a:focus {
+  font-weight: bold;
+}
+
+.hd_bg {
+  display: none;
+  position: relative;
+  z-index: 2;
+  height: 244px;
+  box-shadow: 0 3px 3px rgba(2, 3, 3, 0.1) inset;
+  background: #fff;
+}
+
+.Header-profile {
+  display: flex;
+  padding: 0 1rem 1rem 0;
+  align-items: flex-end;
+  margin-right: 2em;
+}
+
+.Header-profile > a > img {
+  box-sizing: border-box;
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 5px;
+}
+

@@ -26,6 +26,7 @@ Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
 
+<<<<<<< HEAD
 Route::get('/calendar', function () {
     return view('fc.calendar');
 });
@@ -40,4 +41,23 @@ Route::get('/sign_in', function () {
 
 Route::get('/sign_up', function () {
     return view('fc.sign_up');
+=======
+
+//header
+Route::get('/header', function () {
+    return view('header');
+});
+
+//footer
+Route::get('/footer', function () {
+    return view('footer');
+});
+
+Route::get('/login', function () {
+    return view('account.login');
+});
+
+Route::get('/base', function () {
+    return view('base');
+>>>>>>> 248baa5eaac37538ce85e6586f1b1153a6177e5e
 });

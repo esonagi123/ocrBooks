@@ -25,3 +25,19 @@ Route::get('/m_main', function () {
 Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
+
+Route::get('/calendar', function () {
+    return view('fc.calendar');
+});
+
+Route::get('/dashboard', function () {
+    return view('fc.dashboard');
+});
+
+Route::get('/sign_in', function () {
+    return view('fc.sign_in');
+});
+
+Route::get('/sign_up', function () {
+    return view('fc.sign_up');
+});

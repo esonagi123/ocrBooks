@@ -36,3 +36,11 @@ Route::get('/header', function () {
 Route::get('/footer', function () {
     return view('footer');
 });
+
+Route::get('/login', function () {
+    return view('account.login');
+});
+
+Route::get('/base', function () {
+    return view('base');
+});

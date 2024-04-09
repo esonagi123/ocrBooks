@@ -26,3 +26,13 @@ Route::get('/page2', function () {
     return view('test.page2');
 });
 
+
+//header
+Route::get('/header', function () {
+    return view('header');
+});
+
+//footer
+Route::get('/footer', function () {
+    return view('footer');
+});

@@ -18,12 +18,12 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test', function () {
-    return view('test.page1');
+Route::get('/m_main', function () {
+    return view('m_main.index');
 });
 
-Route::get('/page2', function () {
-    return view('test.page2');
+Route::get('/m_scan', function () {
+    return view('m_books.scan');
 });
 
 

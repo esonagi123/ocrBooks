@@ -25,3 +25,14 @@ Route::get('/m_main', function () {
 Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
+
+
+//header
+Route::get('/header', function () {
+    return view('header');
+});
+
+//footer
+Route::get('/footer', function () {
+    return view('footer');
+});

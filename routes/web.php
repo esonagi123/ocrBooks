@@ -43,20 +43,8 @@ Route::get('/sign_in', function () {
 
 Route::get('/sign_up', function () {
     return view('fc.sign_up');
-
-//header
-Route::get('/header', function () {
-    return view('header');
-});
-
-//footer
-Route::get('/footer', function () {
-    return view('footer');
 });
 
 Route::get('/login', function () {
     return view('account.login');
 });
-
-Route::get('/base', function () {
-    return view('base');

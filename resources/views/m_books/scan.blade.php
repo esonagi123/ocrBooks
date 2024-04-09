@@ -40,13 +40,13 @@
         event.preventDefault();
         const formData = new FormData(this);
 
-        fetch('upload.php', {
+        fetch("{{ url('api/requsetOCR') }}", {
             method: 'POST',
             body: formData
         })
         .then(response => response.text())
         .then(data => {
-            console.log(data); // 서버에서 온 응답을 콘솔에 출력
+            // console.log(data); // 서버에서 온 응답을 콘솔에 출력
             // 업로드 후 이미지 컨테이너 초기화 등 추가 동작 수행 가능
         })
         .catch(error => {

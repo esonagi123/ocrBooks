@@ -1,22 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ocrAPI;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// 모바일
 
 Route::get('/m_main', function () {
     return view('m_main.index');
@@ -24,6 +12,20 @@ Route::get('/m_main', function () {
 
 Route::get('/m_scan', function () {
     return view('m_books.scan');
+});
+
+// PC
+
+
+Route::post('api/requestOCR', [ocrAPI::class, 'index'])->name('ocr');
+
+
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
 });
 
 

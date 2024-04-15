@@ -16,13 +16,14 @@
     }    
 </style>
 <div class="container mt-4">
-    <form id="uploadForm" enctype="multipart/form-data">
+    <form id="uploadForm" enctype="multipart/form-data" method="post" action="{{ route('upload') }}">
+        @csrf
         <div class="billUpload shadow-lg d-flex justify-content-center mt-4">
             <div class="row align-items-center">
                 <label for="uploadInput" class="fw-medium text-center fs-5" style="color: #9b7aff;">
                     영수증 첨부하기 &nbsp;<i class="fa-solid fa-images"></i></i>
                 </label>
-                <input type="file" id="uploadInput" name="files[]" multiple style="display: none;">
+                <input type="file" id="uploadInput" name="image[]" multiple style="display: none;">
             </div>
         </div>
 
@@ -38,20 +39,21 @@
 <script>
     document.getElementById('uploadForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        const formData = new FormData(this);
 
-        fetch('upload.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // 서버에서 온 응답을 콘솔에 출력
-            // 업로드 후 이미지 컨테이너 초기화 등 추가 동작 수행 가능
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        const formData = new FormData();
+        const files = document.getElementById('uploadInput').files;
+
+        for (let i = 0; i < files.length; i++) {
+            formData.append('image[]', files[i]);
+        }
+
+        // 폼 데이터 확인
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ', ' + pair[1]);
+        }
+
+        // 폼을 직접 제출
+        this.submit();
     });
 
     const uploadButton = document.getElementById('uploadButton');

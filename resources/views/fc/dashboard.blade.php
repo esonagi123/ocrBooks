@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('m_base')
 
-<head>
-  <meta charset="utf-8">
-  <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-
-  <title>Dashboard</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="css/style.css" rel="stylesheet">
-  
-  <!-- Chart Js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.0/echarts.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
-
-</head>
-
+@section('content')
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
@@ -178,6 +156,5 @@
             </div><!-- End Expenses List -->
       </div>
     </section>
-  </main><!-- End #main -->
-</body>
-</html>
+</main><!-- End #main -->
+@endsection()

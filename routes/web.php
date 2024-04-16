@@ -45,3 +45,7 @@ Route::get('/sign_up', function () {
 Route::get('/login', function () {
     return view('account.login');
 });
+
+Route::get('/mypage', function () {
+    return view('mypage');
+});

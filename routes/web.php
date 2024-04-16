@@ -13,6 +13,10 @@ Route::get('/m_main', function () {
 Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
+
+Route::get('/m_dashboard', function () {
+    return view('fc.dashboard');
+});
 // PC
 
 

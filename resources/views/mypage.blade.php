@@ -53,6 +53,21 @@
         </div>
 
         <div class="row mt-4">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        저축 목표 달성 현황
+                    </div>
+                    <div class="card-body">
+                        <p>목표 저축 금액: <input type="number" id="savingGoalInput" min="0" step="10000"> 원</p>
+                        <p>실제 저축 금액: <input type="number" id="actualSavingInput" min="0" step="10000"> 원</p>
+                        <button class="btn btn-primary" onclick="updateSavingProgress()">저축 정보 업데이트</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
             <div class="col-md-6">
                 <div class="card text-center">
                     <div class="card-header">
@@ -77,21 +92,6 @@
                 <div class="card text-center">
                     <div class="card-header">
                         로그아웃
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card text-center">
-                    <div class="card-header">
-                        저축 목표 달성 현황
-                    </div>
-                    <div class="card-body">
-                        <p>목표 저축 금액: <input type="number" id="savingGoalInput" min="0" step="10000"> 원</p>
-                        <p>실제 저축 금액: <input type="number" id="actualSavingInput" min="0" step="10000"> 원</p>
-                        <button class="btn btn-primary" onclick="updateSavingProgress()">저축 정보 업데이트</button>
                     </div>
                 </div>
             </div>

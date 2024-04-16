@@ -53,3 +53,7 @@ Route::get('/login', function () {
 Route::get('/mypage', function () {
     return view('mypage');
 });
+
+Route::get('/main', function () {
+    return view('main');
+});

@@ -32,128 +32,137 @@
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-currency-dollar"></i>
                     </div>
-                    <div class="ps-3">
-                      <h6>$3,264</h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    <div class="card-body">
+                      <ul class="p-0 m-0">
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../assets/img/icons/unicons/paypal.png" alt="User" class="rounded" />
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">Paypal</small>
+                              <h6 class="mb-0">Send money</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">+82.6</h6>
+                              <span class="text-muted">USD</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">Wallet</small>
+                              <h6 class="mb-0">Mac'D</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">+270.69</h6>
+                              <span class="text-muted">USD</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../assets/img/icons/unicons/chart.png" alt="User" class="rounded" />
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">Transfer</small>
+                              <h6 class="mb-0">Refund</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">+637.91</h6>
+                              <span class="text-muted">USD</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../assets/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">Credit Card</small>
+                              <h6 class="mb-0">Ordered Food</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">-838.71</h6>
+                              <span class="text-muted">USD</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../assets/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">Wallet</small>
+                              <h6 class="mb-0">Starbucks</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">+203.33</h6>
+                              <span class="text-muted">USD</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <img src="../assets/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <small class="text-muted d-block mb-1">Mastercard</small>
+                              <h6 class="mb-0">Ordered Food</h6>
+                            </div>
+                            <div class="user-progress d-flex align-items-center gap-1">
+                              <h6 class="mb-0">-92.45</h6>
+                              <span class="text-muted">USD</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-
+                <!--/ Transactions -->
               </div>
-            </div><!-- End Cost Card -->
-
-            <!--  budgetChart -->
-            <div class="card">
-            <div class="card-body pb-0">
-              <h5 class="card-title">Category analysis <span></span></h5>
-
-              <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
-
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
-                    legend: {
-                      data: ['This Month', 'Last Month']
-                    },
-                    radar: {
-                      // shape: 'circle',
-                      indicator: [{
-                          name: '통신',
-                          max: 6500
-                        },
-                        {
-                          name: '주거',
-                          max: 16000
-                        },
-                        {
-                          name: '식비',
-                          max: 30000
-                        },
-                        {
-                          name: '쇼핑',
-                          max: 38000
-                        },
-                        {
-                          name: '교통',
-                          max: 52000
-                        },
-                        {
-                          name: '미용',
-                          max: 25000
-                        }
-                      ]
-                    },
-                    series: [{
-                      name: 'This Month vs Last Month',
-                      type: 'radar',
-                      data: [{
-                          value: [4200, 3000, 20000, 35000, 50000, 18000],
-                          name: 'This Month'
-                        },
-                        {
-                          value: [5000, 14000, 28000, 26000, 42000, 21000],
-                          name: 'Last Month'
-                        }
-                      ]
-                    }]
-                  });
-                });
-              </script>
             </div>
-          </div><!-- End Budget Report -->
+            <!-- / Content -->
 
-            <!-- Expenses List -->
-            <div class="col-12">
-              <div class="card top-selling overflow-auto">
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                <div>
+                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
+                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
 
-                <div class="card-body pb-0">
-                  <h5 class="card-title">Expenses List <span>| Today</span></h5>
+                  <a
+                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Documentation</a
+                  >
 
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">제품사진</th>
-                        <th scope="col">제품명</th>
-                        <th scope="col">지출액</th>
-                        <th scope="col">잔액</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a>사진1</th>
-                        <td><a href="#" class="text-primary fw-bold">product 1</a></td>
-                        <td>$64</td>
-                        <td>$5,828</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a>사진2</th>
-                        <td><a href="#" class="text-primary fw-bold">product 2</a></td>
-                        <td>$46</td>
-                        <td>$4,508</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a>사진3</th>
-                        <td><a href="#" class="text-primary fw-bold">product 3</a></td>
-                        <td>$59</td>
-                        <td>$4,366</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a>사진4</th>
-                        <td><a href="#" class="text-primary fw-bold">product 4</a></td>
-                        <td>$32</td>
-                        <td>$2,016</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a>사진5</th>
-                        <td><a href="#" class="text-primary fw-bold">product 5</a></td>
-                        <td>$79</td>
-                        <td>$3,239</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <a
+                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+                    target="_blank"
+                    class="footer-link me-4"
+                    >Support</a
+                  >
                 </div>
               </div>
-            </div><!-- End Expenses List -->
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
       </div>
     </section>
 </main><!-- End #main -->

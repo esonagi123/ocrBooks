@@ -18,6 +18,11 @@
   <!-- 부트스트랩CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
  
+  <!-- CSS 로드 -->
+  <link rel="stylesheet" href="http://localhost/css/mobile.css">
+    <link rel="stylesheet" href="http://localhost/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="http://localhost/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    
  <style>
     /* body 스타일 */
     html, body {
@@ -54,63 +59,80 @@
     </ul>
   </div>
 
-  <!-- 지출 Modal -->
-  <div class="modal fade" id="expenseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">지출추가</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ <!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">일정 및 지출 추가</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="eventForm">
+          <!-- 이벤트 관련 입력 필드 -->
+          제목 : <input type="text" id="eventTitle" /><br />
+          시작 날짜 : <input type="datetime-local" id="eventStart" /><br />
+          종료 날짜 : <input type="datetime-local" id="eventEnd" /><br />
         </div>
-        
-        <div class="modal-body">
+        <div id="expenseForm" style="display:none;">
+          <!-- 지출 관련 입력 필드 -->
           지출명 : <input type="text" id="expenseTitle" /><br />
           날짜 : <input type="datetime-local" id="expenseStart" /><br />
           금액 : <input type="number" id="expenseAmount" /><br />
           카테고리 :
           <select id="expenseCategory">
             <option value="식비">식비</option>
-            <option value="교통비">교통비</option>
-            <option value="주거/통신비">주거/통신비</option>
-            <option value="의류/미용비">의류/미용비</option>
-            <option value="건강/문화비">건강/문화비</option>
-            <option value="기타">기타</option>
+            <option value="교통">교통</option>
+            <option value="통신">통신</option>
+            <option value="미용">미용</option>
+            <option value="주거">주거</option>
+            <option value="쇼핑">쇼핑</option>
           </select>
         </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-          <button type="button" class="btn btn-primary" id="saveExpense">추가</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary" id="saveAdd">추가</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- 일정 Modal -->
-  <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">일정추가</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          제목 : <input type="text" id="eventTitle" /><br />
-          시작 날짜 : <input type="datetime-local" id="eventStart" /><br />
-          종료 날짜 : <input type="datetime-local" id="eventEnd" /><br />
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-          <button type="button" class="btn btn-primary" id="saveEvent">추가</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button id="saveData" class="btn btn-primary">저장</button>
+<script>
+  $(function () {
+  var calendarEl = $('#calendar')[0];
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    // 기존 설정...
+  });
 
-  <script>
-    $(function () {
-      var calendarEl = $('#calendar')[0];
+  // 모달에서 라디오 버튼 변경 시 해당하는 입력 필드 보여주기
+  $('input[name=addType]').on('change', function () {
+    if (this.value === 'event') {
+      $('#eventForm').show();
+      $('#expenseForm').hide();
+    } else if (this.value === 'expense') {
+      $('#eventForm').hide();
+      $('#expenseForm').show();
+    }
+  });
+
+  // 추가 버튼 클릭 시
+  $('#saveAdd').on('click', function () {
+    var selectedForm = $('input[name=addType]:checked').val();
+    if (selectedForm === 'event') {
+      // 이벤트 추가 처리...
+    } else if (selectedForm === 'expense') {
+      // 지출 추가 처리...
+    }
+    // 모달 닫기
+    $('#addModal').modal('hide');
+  });
+
+  // 나머지 코드...
+});
+
+  $(function () {
+    var calendarEl = $('#calendar')[0];
       var calendar = new FullCalendar.Calendar(calendarEl, {
         googleCalendarApiKey: '', // 여기에 구글캘린더 api키 입력하시면 됩니다.
         height: '700px', // calendar 높이 설정
@@ -122,6 +144,7 @@
             text: "일정추가",
             click: function () {
               // 부트스트랩 모달 열기
+              
               $("#eventModal").modal("show");
             }
           },

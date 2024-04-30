@@ -14,6 +14,8 @@ body {
     border-radius: 40px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 0 auto;
+    padding: 70px;
 }
 h2 {
     margin-bottom: 50px;
@@ -44,4 +46,14 @@ button {
 }
 button:hover {
     background-color: #0056b3;
+}
+.password-input-container {
+    position: relative;
+}
+#passwordToggleIcon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }

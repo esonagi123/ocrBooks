@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+@extends('m_base')
+
+@section('content')
 <html>
 <head>
-  <meta charset='UTF-8' />
-  <!-- 화면 해상도에 따라 글자 크기 대응(모바일 대응) -->
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <!-- jquery CDN -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- fullcalendar CDN -->
@@ -17,11 +16,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!-- 부트스트랩CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
- 
-  <!-- CSS 로드 -->
-  <link rel="stylesheet" href="http://localhost/css/mobile.css">
-    <link rel="stylesheet" href="http://localhost/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="http://localhost/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     
  <style>
     /* body 스타일 */
@@ -38,25 +32,11 @@
     }
   </style>
 </head>
-<body style="padding:30px;">
+<body>
 
   <!-- calendar 태그 -->
   <div id='calendar-container'>
     <div id='calendar'></div>
-  </div>
-
-  <!-- 사용자 프로필 및 드롭다운 -->
-  <div class="dropdown" style="position: absolute; top: 10px; right: 10px;">
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="avatar0.png" alt="User Avatar" width="30" height="30" class="rounded-circle">
-      John Doe
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="userDropdown">
-      <li><a class="dropdown-item" href="#">프로필</a></li>
-      <li><a class="dropdown-item" href="#">설정</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">로그아웃</a></li>
-    </ul>
   </div>
 
  <!-- Modal -->
@@ -102,7 +82,6 @@
   $(function () {
   var calendarEl = $('#calendar')[0];
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    // 기존 설정...
   });
 
   // 모달에서 라디오 버튼 변경 시 해당하는 입력 필드 보여주기
@@ -127,8 +106,6 @@
     // 모달 닫기
     $('#addModal').modal('hide');
   });
-
-  // 나머지 코드...
 });
 
   $(function () {
@@ -141,7 +118,7 @@
         slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
         customButtons: {
           myCustomButton: {
-            text: "일정추가",
+            text: "일정",
             click: function () {
               // 부트스트랩 모달 열기
               
@@ -150,7 +127,7 @@
           },
 
           myExpenseButton: {
-            text: "지출추가",
+            text: "지출",
             click: function () {
               // 부트스트랩 모달 열기
               $("#expenseModal").modal("show");
@@ -158,7 +135,7 @@
           },
 
           mySaveButton: {
-            text: "저장하기",
+            text: "저장",
             click: async function () {
               if (confirm("저장하시겠습니까?")) {
                 //지금까지 생성된 모든 이벤트 저장하기
@@ -249,7 +226,7 @@
       // 캘린더 랜더링
       calendar.render();
 
-      // 지출 추가 버튼 클릭 시
+      // 지출 버튼 클릭 시
       $('#saveExpense').on('click', function () {
         // 지출 정보 가져오기
         var expenseData = {
@@ -286,7 +263,7 @@
         }
       });
 
-      // 일정 추가 버튼 클릭 시
+      // 일정 버튼 클릭 시
       $('#saveEvent').on('click', function () {
         var eventData = {
           title: $("#eventTitle").val(),
@@ -312,7 +289,7 @@
         }
       });
 
-      // 데이터 저장하기 버튼 클릭 시
+      // 저장 버튼 클릭 시
       $('#saveData').on('click', function () {
         // 저장된 데이터 가져와서 서버에 전송하거나 다른 작업 수행
         var savedEvents = getFromLocalStorage('events');
@@ -338,3 +315,5 @@
 </script>
 </body>
 </html>
+
+@endsection()

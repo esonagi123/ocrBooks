@@ -13,6 +13,11 @@ Route::get('/m_main', function () {
 Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
+Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/calendar', function () {
     return view('fc.calendar');
@@ -29,9 +34,9 @@ Route::get('/sign_in', function () {
 Route::get('/sign_up', function () {
     return view('m_sign.sign_up');
 });
+
+
 // PC
-
-
 Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
 
 Route::get('/', function () {

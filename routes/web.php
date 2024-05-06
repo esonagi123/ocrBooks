@@ -1,23 +1,56 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ocrAPI;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+// 모바일
+
+Route::get('/m_main', function () {
+    return view('m_main.index');
+});
+
+Route::get('/m_scan', function () {
+    return view('m_books.scan');
+});
+Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/calendar', function () {
+    return view('fc.calendar');
+});
 
-Route::get('/test', function () {
-    return view('m_main.index');
+Route::get('/dashboard', function () {
+    return view('fc.dashboard');
+});
+
+Route::get('/sign_in', function () {
+    return view('m_sign.sign_in');
+});
+
+Route::get('/sign_up', function () {
+    return view('m_sign.sign_up');
+});
+
+
+// PC
+Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/login', function () {
+    return view('account.login');
+});
+
+Route::get('/mypage', function () {
+    return view('mypage');
+});
+
+Route::get('/main', function () {
+    return view('main');
 });

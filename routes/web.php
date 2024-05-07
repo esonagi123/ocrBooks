@@ -27,12 +27,20 @@ Route::get('/m_scan', function () {
 });
 
 
-//header
-Route::get('/header', function () {
-    return view('header');
+Route::get('/base', function () {
+    return view('base');
 });
 
-//footer
-Route::get('/footer', function () {
-    return view('footer');
+Route::get('/main', function () {
+    return view('main');
 });
+
+Route::get('/zoo/handwriting', function () {
+    return view('zoo/handwriting');
+});
+
+
+Route::get('/m_base', function () {
+    return view('m_base');
+});
+

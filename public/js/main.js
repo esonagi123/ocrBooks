@@ -1,5 +1,6 @@
 $(document).ready(function () {
-	var date = new Date("2024/03/11");
+	/*List date*/
+  var date = new Date("2024/03/11");
 
 	var year = date.getFullYear();
 	var month = date.getMonth()+1;
@@ -27,11 +28,12 @@ $(document).ready(function () {
   
 });
 
-
-
-
-
-
 date.setMonth(date.getMonth() + 1);
-
 date.getFullYear(), date.getMonth() + 1, date.getDate()
+
+
+/*table scroll*/
+$(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();

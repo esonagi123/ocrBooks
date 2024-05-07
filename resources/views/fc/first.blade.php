@@ -25,11 +25,13 @@
         .welcome-text h4 {
             font-size: 3em;
             font-weight: bold;
+            margin-left: 70px;
         }
         .welcome-text h1 {
             font-size: 4em;
             font-weight: bold;
             margin-bottom: 70px;
+            margin-left: 70px;
         }
         .btn-start {
             font-size: 1.5em;
@@ -44,8 +46,12 @@
 </head>
 <body>
     <div class="welcome-text">
-        <h4>OCR 가계부에 오신 것을</h4>
-        <h1>환영합니다 !</h1>
+        <h4>Just</h4>
+        <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Capture your Receipt</h1>
         <a href="#" class="btn btn-primary btn-lg btn-start">시작하기</a>
     </div>
 </body>

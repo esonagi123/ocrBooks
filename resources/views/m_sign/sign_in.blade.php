@@ -39,7 +39,7 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login</h5>
+                    <h5 class="card-title text-center pb-0 fs-4">로그인</h5>
                   </div>
 
                   <form class="row g-3 needs-validation" novalidate>

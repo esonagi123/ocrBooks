@@ -1,0 +1,41 @@
+body{
+    margin-top: 3em;
+}
+
+.file{
+    width: 30%;
+    height: 40%;
+}
+
+article{
+
+    width: 100%;
+    top: 50%;
+    left: 30%;
+}
+
+.uploadInput{
+    margin-top: 1em;
+}
+
+table{
+    margin-top: 2em;
+}
+
+.inputstyle{
+    width: 20%;
+    height: 50%;
+    background: #fff;
+    border: 1px solid rgb(77,77,77);
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-select{
+    width: 20%;
+}
+

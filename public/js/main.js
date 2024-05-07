@@ -339,7 +339,8 @@
 })();
 =======
 $(document).ready(function () {
-	var date = new Date("2024/03/11");
+	/*List date*/
+  var date = new Date("2024/03/11");
 
 	var year = date.getFullYear();
 	var month = date.getMonth()+1;
@@ -367,12 +368,5 @@ $(document).ready(function () {
   
 });
 
-
-
-
-
-
 date.setMonth(date.getMonth() + 1);
-
 date.getFullYear(), date.getMonth() + 1, date.getDate()
->>>>>>> 248baa5eaac37538ce85e6586f1b1153a6177e5e

@@ -23,70 +23,17 @@ Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
 
-// OCR API
-Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
 
-Route::get('/', function () {
-    return view('welcome');
+//header
+Route::get('/header', function () {
+    return view('header');
 });
 
-Route::get('/calendar', function () {
-    return view('fc.calendar');
+//footer
+Route::get('/footer', function () {
+    return view('footer');
 });
 
-Route::get('/dashboard', function () {
-    return view('fc.dashboard');
-});
-
-Route::get('/sign_in', function () {
-    return view('m_sign.sign_in');
-});
-
-Route::get('/sign_up', function () {
-    return view('m_sign.sign_up');
-});
-
-// 로그인
-Route::get('/m_login', function () {
-    return view('m_account.login');
-});
-Route::get('login', [Login::class, 'index'])->name('login');
-
-// 회원가입
-Route::get('/m_join', function () {
-    return view('m_account.join');
-});
-Route::get('register', [Join::class, 'index'])->name('register');
-Route::post('register/join', [Join::class, 'store'])->name('register.join');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// PC
-Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('account.login');
-});
-
-Route::get('/mypage', function () {
-    return view('mypage');
-});
 
 Route::get('/main', function () {
     return view('main');

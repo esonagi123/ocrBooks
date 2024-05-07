@@ -35,6 +35,9 @@ Route::get('/sign_up', function () {
     return view('m_sign.sign_up');
 });
 
+Route::get('/receipt', function () {
+    return view('receipt.receipt');
+});
 
 // PC
 Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');

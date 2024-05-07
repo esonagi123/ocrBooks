@@ -39,6 +39,7 @@ Route::get('/main', function () {
     return view('main');
 });
 
+// 영수증 업로드
 Route::get('/receipt', function () {
     return view('receipt.receipt');
 });

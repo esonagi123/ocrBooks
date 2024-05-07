@@ -13,46 +13,18 @@ Route::get('/m_main', function () {
 Route::get('/m_scan', function () {
     return view('m_books.scan');
 });
-Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
 
-Route::get('/', function () {
-    return view('welcome');
+
+//header
+Route::get('/header', function () {
+    return view('header');
 });
 
-Route::get('/calendar', function () {
-    return view('fc.calendar');
+//footer
+Route::get('/footer', function () {
+    return view('footer');
 });
 
-Route::get('/dashboard', function () {
-    return view('fc.dashboard');
-});
-
-Route::get('/sign_in', function () {
-    return view('m_sign.sign_in');
-});
-
-Route::get('/sign_up', function () {
-    return view('m_sign.sign_up');
-});
-
-Route::get('/receipt', function () {
-    return view('receipt.receipt');
-});
-
-// PC
-Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('account.login');
-});
-
-Route::get('/mypage', function () {
-    return view('mypage');
-});
 
 Route::get('/main', function () {
     return view('main');

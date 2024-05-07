@@ -14,4 +14,3 @@ Route::get('/scan', function () {
 });
 
 Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
-

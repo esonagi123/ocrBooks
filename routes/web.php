@@ -29,3 +29,7 @@ Route::get('/footer', function () {
 Route::get('/main', function () {
     return view('main');
 });
+
+Route::get('/receipt', function () {
+    return view('receipt.receipt');
+});

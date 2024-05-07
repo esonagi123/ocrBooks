@@ -89,7 +89,7 @@
     <title>Upload</title>
 </head>
 
-<body class="vertical-alignment ">
+<body>
     <article>
         <div class="uploadBody">
             <h2 class="upload_h">수기작성</h2>
@@ -97,25 +97,20 @@
         
         <div class="inputBox">
             <img class="preview" id="img_preview" style="display:none;"/>
-            <label for="file"></label>
-            <input type="file" class="form-control inputstyle" multiple="multiple" id="input_file" name="input_image" 
+            <label for="input_file" class="inputstyle">영수증 업로드</label>
+            <input type="file" class="form-control formfile" id="input_file" name="input_image" 
                    onchange="setDetailImage(event);" accept="image/png, image/jpeg, image/jpg" style="margin-left: 0.1em;">
         </div>
-        
+
         <table class="table">
             <tbody>
-                <colgroup>
-                    <col width=10%>
-                    <col width=50%>
-                </colgroup>
-
                 <tr>
                     <td class="date" >날짜</td>
                     <td>날짜 불러오기</td>
                 </tr>
                 <tr>
                     <td class = "category" >카테고리</td>
-                    <td><select class="form-select form-select-md mb-3" name="type" style="font-size:1em;">
+                    <td><select class="form-select form-select-md " name="type" style="font-size:1em;">
                         <option selected>카테고리를 지정하세요</option>
                         <option>문화</option>
                         <option>식비</option>
@@ -128,17 +123,22 @@
                 </tr>
                 <tr >
                     <td class="price" >금액</td>
-                    <td><textarea class="price_input" name="info" maxlength="12" rows="1" cols="1" style="width:40%; border:none;" onkeyup="inputNumberFormat(this);" placeholder="금액을 입력해주세요"></textarea></td>
+                    <td><textarea class="price_input" name="info" maxlength="12" rows="1" cols="1" onkeyup="inputNumberFormat(this);" placeholder="금액을 입력해주세요"></textarea></td>
                 </tr>
-                <tr >
-                    <td class="memo" >메모</td>
-                    <td><textarea class="memo_input" name="info" rows="10" cols="60" style="width:40%; border:none;" placeholder="메모할 내용을 입력해주세요"></textarea></td>
+                
+                <tr class="form-floating">
+                    <td><label for="floatingTextarea2">Memo</label></td>
+                    <td><textarea class="form-control" placeholder="memo" id="floatingTextarea2"></textarea></td>
                 </tr>
+
                 <!-- <tr>
                     <button>저장</button>
                 </tr> -->
             </tbody>
         </table>
+        <tr>
+            <td><span class="align-bottom"><button class="savebtn">저장</button></span></td>
+        </tr>
 </article>
 
 <script>

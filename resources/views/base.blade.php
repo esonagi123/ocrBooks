@@ -1,76 +1,70 @@
-@section('header')
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype html>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no">
-    <link rel="stylesheet" href="{{ asset('/css/header.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('/css/footer.css') }}"/>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{ asset('/js/header.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('/css/main.css') }}"/>
-    <script src="{{ asset('/js/main.js') }}"></script>
-</head>
-
-  <!-- 헤더 시작-->
-    <header>    
-        <div class="Header">
-          <div class="Logo">
-            <a href="{{ url('/main') }}"><img src="../img/Logo.png" /></a>
-          </div>
-        
-          <!--카테고리 시작-->
-          <div class="Header-catalogue">
-            <nav>
-              <ul id="gnb">
-                <li class="dept1">
-                  <a href="#">지출</a>
-                  <ul class="inner-menu">
-                    <li class="dept2"><a href="#">주간</a></li>
-                    <li class="dept2"><a href="#">월간</a></li>
-                  </ul>
-                </li>
-  
-                <li class="dept1">
-                  <a href="#">다이어그램</a>
-                  <ul class="inner-menu">
-                    <li class="dept2"><a href="#">막대</a></li>
-                    <li class="dept2"><a href="#">원형</a></li>
-                  </ul>
-                </li>
-            <!-- * 검색 영역 추가 * -->
-            <div class="Header-profile">
-                <a href="#"><img src="../img/profile.png" /></a>
-            </div>  
-          </div>
-          <!--카테고리 끝-->
-        </div>
-      </div>
-      <div class="hd_bg"></div>
-    </header>   
-    <!-- 헤더 끝 -->
-<body>
-    @yield('content') 
-</body>
-
-<!--푸터 시작-->
-<footer>
-    <div class="footer-Left">
-        <div class="footer-terms">
-            <ul>
-            <li>개인정보처리방침</li>
-            <li>이용약관</li>
-            <li>서비스</li>
-            <li>고객센터</li>
-            </ul>
-        </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-        <div class="footer-social-Icon">
-            <img src="../img/footer_Icon_Image/Instagram.png" class="footer-Instagram"/>
-            <img src="../img/footer_Icon_Image/Blog.png" class="footer-Blog"/>
-            <img src="../img/footer_Icon_Image/FaceBook.png" class="footer-FaceBook"/>
-        </div>   
-        </div>
-</footer>
-<!--푸터 끝-->
+    <!-- 부트스트랩 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/649102945e.js" crossorigin="anonymous"></script>
+
+    <!-- ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- CSS 로드 -->
+    <link rel="stylesheet" href="{{ asset('css/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+  
+      <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+  </head>
+  <body>
+    <div class="ms-4 me-4">
+      <div class="container">
+          <div class="row mt-4 text-center align-items-center" >
+              <div class="col-8">
+                  <div class="row textGrey fw-medium">
+                    환영합니다!
+                  </div>
+                  <div class="row fw-bold">
+                    김대현 님
+                  </div>
+              </div>
+              <div class="col text-end">
+                  <div class="dropdown">
+                    <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">마이페이지</a></li>
+                      <li><a class="dropdown-item" href="{{ url('m_login') }}">로그인</a></li>
+                    </ul>                  
+                  </div>
+                </div>
+          </div>
+      </div>
+      @yield('content')
+    </div>
+    <div style="margin-top:100px;"></div>
+    <div class="position-fixed botFixedBar shadow-lg d-flex align-items-center">
+      <div class="container">
+          <div class="row">
+              <div class="col-6">
+                <a href="{{ url('/m_main') }}">
+                  <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                </a>
+              </div>
+              <div class="col-6">
+                <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
+              </div>  
+          </div>      
+      </div>
+    </div>
+  
+  </body>
 </html>

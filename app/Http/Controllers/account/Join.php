@@ -12,17 +12,12 @@ use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
 
-class Account extends Controller
+class Join extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         if (!Auth::check()) {
-            return view('account.register');
+            return view('m_account.join');
         } else {
             return back()->with('already_login', '이미 로그인 되었습니다.');
         }

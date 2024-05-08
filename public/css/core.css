@@ -61,17 +61,29 @@
 	src: url('../font/PretendardVariable.woff2') format('woff2-variations');
 }
 
+@media (min-width: 601px) {
+    /* 1025px 이상의 화면에 적용될 스타일 */
+    html {
+      max-width: 600px;
+      margin: 0 auto; /* 중앙 정렬을 위해 사용 */
+    }
+}
 
 
 body {
     font-family: Pretendard Variable;
     color: var(--bs-body-color);
+    min-height: 100vh;
+    margin: 0 auto;
 }
 
 a {
     text-decoration: none; /* 텍스트에 밑줄 제거 */
     color: inherit; /* 링크의 색상을 상위 요소의 색상으로 상속 */
     cursor: pointer; /* 기본 커서 설정 (선택 사항) */
+}
+
+.page {
 }
 
 .textGrey {
@@ -109,7 +121,15 @@ a {
     
 }
 
+.botFixedBarWrapper {
+    
+    bottom: 0px;
+    height: 100vh;
+    overflow: hidden;
+}
+
 .botFixedBar {
+    position: fixed;
     margin-top: 100px;
     bottom: 0px;
     width: 100%;
@@ -120,6 +140,28 @@ a {
     
     border-top-left-radius: 22px; /* 상단 좌측 모서리에만 반경을 적용 */
     border-top-right-radius: 22px; /* 상단 우측 모서리에만 반경을 적용 */
+}
+
+@media (min-width: 600px) {
+    /* 1025px 이상의 화면에 적용될 스타일 */
+    .botFixedBar {
+        position: fixed;
+        margin-top: 100px;
+        bottom: 0px;
+        width: 600px;
+        height: 60px;
+        background-color: #ffffff;
+        padding: 10px;
+        text-align: center;
+        
+        border-top-left-radius: 22px; /* 상단 좌측 모서리에만 반경을 적용 */
+        border-top-right-radius: 22px; /* 상단 우측 모서리에만 반경을 적용 */
+    }
+}
+
+.botFixedBar .container {
+    max-width: 425px;
+    width: 100%;
 }
 
 .billUpload {

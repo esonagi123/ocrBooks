@@ -192,15 +192,14 @@ a {
 
 .searchform{
     width: 100%;
-    margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 5em;
     display: flex;
 }
 
 .form-check{
+    width: 10em;
+    margin-right: -3em;
     display: grid;
-    width: 90px;
-    margin-right: -15px;
 }
 
 .search-box{
@@ -238,6 +237,13 @@ a {
     align-items: center;
 }
 
+
+.search-cal{
+
+
+}
+
+
 .listform{
     width: 90%;  
     align-items: center;
@@ -252,7 +258,7 @@ a {
 
 .detail{
     display: grid;
-    grid-template-columns: 6ch 15ch 10ch;
+    grid-template-columns: 3ch 7ch 5ch;
     grid-gap: 20%;
 }
 

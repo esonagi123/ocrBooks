@@ -73,6 +73,22 @@
             <button type="submit" class="btn btn-primary btn-block">수정</button>
         </form>
     </div>
+    <div style="margin-top:100px;">
+      <div class="botFixedBar shadow-lg d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                  <a href="{{ url('/') }}">
+                    <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                  </a>
+                </div>
+                <div class="col-6">
+                  <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
+                </div>  
+            </div>      
+        </div>
+      </div>
+      </div>
     <script>
         function togglePasswordVisibility() {
             var passwordInput = document.getElementById("new_password");

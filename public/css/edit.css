@@ -1,3 +1,7 @@
+.form-group {
+    margin-bottom: 20px;
+    }
+
 .password-input-container {
     position: relative;
     align-items: center;
@@ -13,6 +17,11 @@
     color: #888;
 }
 
-.form-group {
-    margin-bottom: 20px;
+#confirmPasswordToggleIcon {
+    position: absolute;
+    right: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
 }

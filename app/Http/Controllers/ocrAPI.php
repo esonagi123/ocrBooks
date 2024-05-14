@@ -90,7 +90,7 @@ class ocrAPI extends Controller
           }
         }
           // foreach가 끝나면
-          return view('m_books.scanResult', ['datas' => (object)$datas]);
+          return view('books.scanResult', ['datas' => (object)$datas]);
     } else {
       return response()->json(['success' => false, 'message' => '이미지가 전송되지 않았습니다.']);
     }

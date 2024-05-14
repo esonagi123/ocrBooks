@@ -83,7 +83,17 @@ a {
     cursor: pointer; /* 기본 커서 설정 (선택 사항) */
 }
 
-.page {
+.topBar {
+    position: -webkit-sticky; /* Safari용 */
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    padding: 8px;
+    border-bottom: 1px; solid rgb(169, 169, 169);
+    background-color: #ffffff;
+    border-top-left-radius: 22px; /* 상단 좌측 모서리에만 반경을 적용 */
+    border-top-right-radius: 22px; /* 상단 우측 모서리에만 반경을 적용 */
+    width: 100%;
 }
 
 .textGrey {
@@ -133,7 +143,7 @@ a {
     margin-top: 100px;
     bottom: 0px;
     width: 100%;
-    height: 60px;
+    height: 65px;
     background-color: #ffffff;
     padding: 10px;
     text-align: center;
@@ -264,3 +274,114 @@ a {
     width: 30%;
 }
 
+
+
+
+/* 내역-uselist css */
+.listbody{
+    width: 100%;
+}
+
+.searchform{
+    width: 100%;
+    margin-left: 20px;
+    margin-top: 40px;
+    display: flex;
+}
+
+.form-check{
+    display: grid;
+    width: 90px;
+    margin-right: -15px;
+}
+
+.search-box{
+    background-color: white;
+    width: 80%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid rgb(53, 66, 250);
+    padding-left: 20px;
+    margin-left: 42px;
+    margin-top: 10px;
+}
+
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0px;
+    font-size: 16px;
+    line-height: 10px;
+}
+
+.search-btn{
+    color: rgb(53, 52, 52);
+    float: right;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    display: flex;
+    font-size: 16px;
+    width: 30px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.listform{
+    width: 90%;  
+    align-items: center;
+    margin: auto;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+
+.icon{
+    width: 40%;
+}
+
+.detail{
+    display: grid;
+    grid-template-columns: 6ch 15ch 10ch;
+    grid-gap: 20%;
+}
+
+.list .date{
+    width: 20%;
+}
+
+.list .store{
+    width: 50%;
+}
+
+.list .price{
+    width: 30%;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid #d9dee3;
+    border-radius: 0.5rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.875rem;
+  }
+  
+  .card-subtitle {
+    margin-top: -0.4375rem;
+    margin-bottom: 0;
+  }

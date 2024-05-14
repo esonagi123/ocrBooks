@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     
     <!-- 부트스트랩 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -17,8 +17,8 @@
 
     <!-- CSS 로드 -->
     <link rel="stylesheet" href="{{ asset('css/core.css') }}">
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+    {{-- <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" /> --}}
   
       <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   </head>
   <body>
+    <div class="page">
     <div class="ms-4 me-4">
       <div class="container">
           <div class="row mt-4 text-center align-items-center" >
@@ -50,21 +51,21 @@
       </div>
       @yield('content')
     </div>
-    <div style="margin-top:100px;"></div>
-    <div class="position-fixed botFixedBar shadow-lg d-flex align-items-center">
-      <div class="container">
-          <div class="row">
-              <div class="col-6">
-                <a href="{{ url('/m_main') }}">
-                  <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
-                </a>
-              </div>
-              <div class="col-6">
-                <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
-              </div>  
-          </div>      
+      <div style="margin-top:100px;">
+      <div class="botFixedBar shadow-lg d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                  <a href="{{ url('/') }}">
+                    <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                  </a>
+                </div>
+                <div class="col-6">
+                  <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
+                </div>  
+            </div>      
+        </div>
       </div>
-    </div>
-  
+      </div>
   </body>
 </html>

@@ -83,7 +83,17 @@ a {
     cursor: pointer; /* 기본 커서 설정 (선택 사항) */
 }
 
-.page {
+.topBar {
+    position: -webkit-sticky; /* Safari용 */
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    padding: 8px;
+    border-bottom: 1px; solid rgb(169, 169, 169);
+    background-color: #ffffff;
+    border-top-left-radius: 22px; /* 상단 좌측 모서리에만 반경을 적용 */
+    border-top-right-radius: 22px; /* 상단 우측 모서리에만 반경을 적용 */
+    width: 100%;
 }
 
 .textGrey {
@@ -133,7 +143,7 @@ a {
     margin-top: 100px;
     bottom: 0px;
     width: 100%;
-    height: 60px;
+    height: 65px;
     background-color: #ffffff;
     padding: 10px;
     text-align: center;
@@ -172,3 +182,28 @@ a {
     margin-bottom: 10px;
 }
 
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid #d9dee3;
+    border-radius: 0.5rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.875rem;
+  }
+  
+  .card-subtitle {
+    margin-top: -0.4375rem;
+    margin-bottom: 0;
+  }

@@ -26,10 +26,11 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   </head>
   <body>
-    <div class="page">
     <div class="ms-4 me-4">
+
+      <nav class="topBar">
       <div class="container">
-          <div class="row mt-4 text-center align-items-center" >
+          <div class="row text-center align-items-center" >
               <div class="col-8">
                   <div class="row textGrey fw-medium">
                     환영합니다!
@@ -48,24 +49,32 @@
                   </div>
                 </div>
           </div>
+        </div>
+      </nav>
+      <div class="page p-1">
+        @yield('content')
       </div>
-      @yield('content')
     </div>
       <div style="margin-top:100px;">
-      <div class="botFixedBar shadow-lg d-flex align-items-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
+        <div class="botFixedBar shadow-lg d-flex align-items-center">
+          <div class="container">
+              <div class="row">
+                <div class="col-4">
                   <a href="{{ url('/') }}">
-                    <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                    <i class="fas fa-arrow-left" style="font-size:25px; color: #82888c;"></i>
                   </a>
-                </div>
-                <div class="col-6">
-                  <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
-                </div>  
-            </div>      
+                </div>              
+                  <div class="col-4">
+                    <a href="{{ url('/') }}">
+                      <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                    </a>
+                  </div>
+                  <div class="col-4">
+                    <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
+                  </div>  
+              </div>      
+          </div>
         </div>
-      </div>
       </div>
   </body>
 </html>

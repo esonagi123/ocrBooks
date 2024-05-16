@@ -1,4 +1,4 @@
-@extends('m_base')
+@extends('base')
 
 @section('content')
 <style>

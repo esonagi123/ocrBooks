@@ -4,53 +4,30 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ocrAPI;
 
 
-// 모바일
-
-Route::get('/m_main', function () {
-    return view('m_main.index');
-});
-
-Route::get('/m_scan', function () {
-    return view('m_books.scan');
-});
-Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main.index');
 });
 
-Route::get('/calendar', function () {
-    return view('fc.calendar');
+Route::get('/scan', function () {
+    return view('books.scan');
 });
 
-Route::get('/dashboard', function () {
-    return view('fc.dashboard');
+Route::get('/uselist', function () { 
+    return view('books.uselist');
 });
 
-Route::get('/sign_in', function () {
-    return view('m_sign.sign_in');
-});
-
-Route::get('/sign_up', function () {
-    return view('m_sign.sign_up');
-});
-
-
-// PC
-Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
+Route::get('/login', function () { 
     return view('account.login');
 });
 
-Route::get('/mypage', function () {
-    return view('mypage');
+Route::get('/edit', function () { 
+    return view('account.edit');
 });
 
-Route::get('/main', function () {
-    return view('main');
+Route::get('/signup', function () { 
+    return view('account.signup');
 });
+
+
+Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload');

@@ -1,0 +1,65 @@
+body{
+    margin-top: 3em;
+}
+
+article{
+    width: 70%;
+    top: 50%;
+    padding-left: 30%;
+}
+
+/* input */
+.file{
+    width: 30%;
+    height: 40%;
+}
+
+.formfile{
+    display: none;
+}
+
+.inputstyle{
+    width: 20%;
+    height: 3em;
+    background: #fff;
+    border: 1px solid rgb(77,77,77);
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+table{
+    margin-top: 2em;
+}
+
+/*카테고리*/
+.form-select{
+    width: 20%;
+}
+.category{
+    position: flex;
+    width: 50%;
+}
+
+.price_input{
+    width: 50%;
+}
+
+
+
+/*저장*/
+.savebtn{
+    width: 15%;
+    height: 50%;
+}
+
+
+
+.memo_input{
+
+}

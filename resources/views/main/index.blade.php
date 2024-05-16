@@ -1,4 +1,4 @@
-@extends('m_base')
+@extends('base')
 
 @section('content')
 <div class="container mt-3">
@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="col text-center align-items-center">
-            <a class="no-deco" href="{{ url('/m_scan') }}">
+            <a class="no-deco" href="{{ url('/scan') }}">
                 <div class="shadow-lg card mainBtn d-flex justify-content-center">
                     <i class="fa-solid fa-receipt" style="font-size: 40px; color: #ffb223;"></i>
                     <div class="mt-2 fw-semibold">영수증 스캔</div>

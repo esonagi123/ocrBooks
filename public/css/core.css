@@ -385,3 +385,35 @@ a {
     margin-top: -0.4375rem;
     margin-bottom: 0;
   }
+
+.centered-title {
+    text-align: center;
+}
+
+.password-input-container {
+position: relative;
+align-items: center;
+margin-bottom: 20px;
+}
+
+#passwordToggleIcon {
+position: absolute;
+right: 10px;
+top: 70%;
+transform: translateY(-50%);
+cursor: pointer;
+color: #888;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+#confirmPasswordToggleIcon {
+    position: absolute;
+    right: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}

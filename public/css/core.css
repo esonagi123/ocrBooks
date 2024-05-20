@@ -176,91 +176,215 @@ a {
 
 
 /* 내역-uselist css */
-.listbody{
+.listbody {
     width: 100%;
 }
 
-.searchform{
-    width: 100%;
-    margin-top: 5em;
-    display: flex;
-}
-
-.form-check{
-    width: 10em;
-    margin-right: -3em;
-    display: grid;
-}
-
-.search-box{
+.search-box {
     background-color: white;
-    width: 80%;
-    height: 40px;
-    padding: 10px;
+    width: 75%;
+    height: 3em;
+    padding: 0.5em;
     border: 1px solid rgb(53, 66, 250);
-    padding-left: 20px;
-    margin-left: 42px;
-    margin-top: 10px;
+    margin: auto;
+    margin-top: 3em;
 }
 
-.search-txt{
+.search-txt {
     border: none;
     background: none;
     outline: none;
     float: left;
     padding: 0px;
-    font-size: 16px;
-    line-height: 10px;
+    line-height: 2em;
+    width: calc(100% - 2.5em); /* 검색 상자 너비를 아이콘을 고려하여 설정 */
 }
 
-.search-btn{
+.search-btn {
     color: rgb(53, 52, 52);
     float: right;
     border-radius: 50%;
     background: white;
     border: none;
     display: flex;
-    font-size: 16px;
-    width: 30px;
+    width: 2em;
     height: 100%;
     justify-content: center;
     align-items: center;
 }
 
-
-.search-cal{
-
-
+.search-form {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+    margin: auto;
+    padding-left: 0.5em;
+    margin-top: 1em;
 }
 
+.form-check {
+    display: grid;
+    padding: 0.3em;
+}
 
-.listform{
-    width: 90%;  
+.form-check-input.btn-check:not(:checked) + .btn-primary {
+    background-color: #959595; /* 회색 배경색 */
+    border-color: #959595;
+}
+/* 체크된 상태의 체크박스 배경색 */
+.form-check-input.btn-check:checked + .btn-primary {
+    background-color: #007bff;
+}
+
+.listform {
+    width: 90%;
     align-items: center;
     margin: auto;
-    margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 2em;
 }
 
-.icon{
+.icon {
     width: 40%;
 }
 
-.detail{
+.detail {
     display: grid;
     grid-template-columns: 3ch 7ch 5ch;
     grid-gap: 20%;
 }
 
-.list .date{
+.list .date {
     width: 20%;
 }
 
-.list .store{
+.list .store {
     width: 50%;
 }
 
-.list .price{
+.list .price {
     width: 30%;
 }
 
+.memo{
+    padding-top: 0.8em;
+    padding-bottom: 0.5em;
+}
+
+/* 화면 폭이 768px 이하일 때 세로로 배치됨 */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+
+
+
+
+
+
+/*캘린더*/
+.input-container {
+    position: relative;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-box {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group-tools {
+    display: flex;
+    align-items: center;
+}
+
+.input-group-tools .option {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 60px;
+    z-index: 1000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #007BFF;
+    color: white;
+}
+
+.header button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.weekdays, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.weekdays {
+    background: #f0f0f0;
+    font-weight: bold;
+}
+
+.days div {
+    padding: 20px;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+}
+
+.days div:hover {
+    background: #e0e0e0;
+}
+
+.days .selected {
+    background: #007BFF;
+    color: white;
+}
+
+.days .range {
+    background: #d0e6ff;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 20px;
+    }
+    .days div {
+        padding: 10px;
+    }
+}

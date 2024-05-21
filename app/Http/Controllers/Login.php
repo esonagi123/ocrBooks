@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Account;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +18,7 @@ class Login extends Controller
 		if (!Auth::check()) {
 			return view('account.login');
 		} else {
-			return back()->with('already_login', '이미 로그인 되었습니다.');
+			return back()->with('already_login', '이미 로그인 되어있습니다.');
 		}
 	}
 
@@ -48,7 +48,6 @@ class Login extends Controller
 
 				if (Auth::attempt($credentials, $remember)) {
 					// session()->put('user_id', $row->id); // user_id 세션 키 저장
-					// return redirect('quiz'); // 퀴즈 홈으로 리다이렉트
 					return redirect()->intended('/');
 				} else {
 					return back()->with('PWDerror', '아이디 또는 비밀번호가 잘못되었습니다.')->withInput();
@@ -66,7 +65,7 @@ class Login extends Controller
 		// 로그인 기억하기를 사용한 경우 쿠키를 삭제
 		if (Auth::check() && $request->hasCookie('remember_web_59')) {
 			$cookie = cookie('remember_web_59', null, -1);
-			return redirect('quiz')->withCookie($cookie);
+			return redirect('/')->withCookie($cookie);
 		}
 	
 		// Laravel Auth에서 로그아웃
@@ -75,7 +74,7 @@ class Login extends Controller
 		// 세션에서 user_id 삭제
 		// $request->session()->forget('user_id');
 	
-		return redirect('quiz');
+		return redirect('/');
 	}
 
 }

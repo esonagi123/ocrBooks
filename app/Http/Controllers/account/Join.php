@@ -16,17 +16,17 @@ class Join extends Controller
 {
     public function index()
     {
-        if (!Auth::check()) {
-            return view('m_account.join');
-        } else {
-            return back()->with('already_login', '이미 로그인 되었습니다.');
-        }
+
     
     }
 
     public function create()
     {
-        //
+        if (!Auth::check()) {
+            return view('account.join');
+        } else {
+            return back()->with('already_login', '이미 로그인 되었습니다.');
+        }
     }
 
 
@@ -40,11 +40,10 @@ class Join extends Controller
                 'confirmed',
                 'regex:/^(?=.*[a-z\d])[a-z\d@$!%*?&]{8,16}$/i', // 최소 8자 이상, 최대 16자 이하의 문자열, 적어도 하나의 소문자 (a-z) 또는 숫자 (\d)
             ],
-            'nickname' => 'required|unique:users,nickname|regex:/^[\p{L}a-zA-Z0-9]{2,8}$/u',
+            'name' => 'required|regex:/^[\p{L}a-zA-Z0-9]{2,8}$/u',
         ], [
-            'nickname.required' => '닉네임을 입력하세요.',
-            'nickname.unique' => '사용 중인 닉네임 입니다.',
-            'nickname.regex' => '닉네임은 2~8자 이내의 한글과 영문 대/소문자만 사용 가능합니다.',
+            'name.required' => '이름을 입력하세요.',
+            'name.regex' => '닉네임은 2~8자 이내의 한글과 영문 대/소문자만 사용 가능합니다.',
             'uid.required' => '아이디를 입력하세요.',
             'uid.unique' => '사용 중인 아이디 입니다.',
             'uid.regex' => '아이디는 영문 소문자, 숫자, 밑줄(_), 하이픈(-)만 사용 가능하며 5~20자 이내로 입력하세요.',
@@ -59,8 +58,7 @@ class Join extends Controller
     
         $user = new User;
         $user->uid = $request->input('uid');
-        $user->nickname = $request->input('nickname');
-        $user->avatar = $request->input('avatar');
+        $user->name = $request->input('name');
         $user->email = $request->input('email');
     
         // 비밀번호를 해시화하여 저장
@@ -69,6 +67,6 @@ class Join extends Controller
     
         $user->save();
     
-        return redirect()->route('login')->with('success', '회원가입이 완료되었습니다.\n로그인 해주세요.');
+        return redirect('login')->with('success', '회원가입이 완료되었습니다.\n로그인 해주세요.');
     }
 }

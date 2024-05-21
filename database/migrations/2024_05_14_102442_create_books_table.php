@@ -13,8 +13,6 @@ class CreateBooksTable extends Migration
             $table->string('uid');
             $table->date('date');
             $table->string('shop');
-            $table->string('product');
-            $table->string('qty');
             $table->integer('total');
             $table->string('category');
             $table->string('memo');

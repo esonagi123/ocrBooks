@@ -36,7 +36,7 @@
                     환영합니다!
                   </div>
                   <div class="row fw-bold">
-                    김대현 님
+                    {{ $userData['name'] }} 님
                   </div>
               </div>
               <div class="col text-end">
@@ -44,7 +44,7 @@
                     <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">마이페이지</a></li>
-                      <li><a class="dropdown-item" href="{{ url('m_login') }}">로그인</a></li>
+                      <li><a class="dropdown-item" href="{{ url('/logout') }}">로그아웃</a></li>
                     </ul>                  
                   </div>
                 </div>

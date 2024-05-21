@@ -12,66 +12,88 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!-- CSS 로드 -->
-    <link rel="stylesheet" href="{{ asset('css/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/core.css') }}?v={{ time() }}">
     <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
-    <div class="ms-4 me-4">
-        <div class="container">
-            <div class="row mt-4 text-center align-items-center">
-                <div class="col-8">
-                    <div class="row textGrey fw-medium">
-                        환영합니다!
-                    </div>
+    <div class="mt-4">
+        <div class="container">           
+            <h1 class="mb-4 centered-title">로그인</h1>
+            @if (\Session::has('IDerror'))
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    아이디를 찾을 수 없습니다.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                <div class="col text-end">
-                    <div class="dropdown">
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">마이페이지</a></li>
-                            <li><a class="dropdown-item" href="{{ url('m_login') }}">로그인</a></li>
-                        </ul>
-                    </div>
+                @elseif (\Session::has('PWDerror'))
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    비밀번호가 잘못되었습니다.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </div>
-        </div>
-        <div class="container">
-            <h1 class="mb-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;로그인</h1>
-            <form method="POST" action="#" class="mb-4">
+                @elseif (\Session::has('error'))
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    아이디와 비밀번호를 입력하세요.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif            
+            <form method="POST" action="{{ url('/login/check') }}" class="mb-4">
+                @csrf
                 <div class="form-group">
                     <label for="id">아이디</label>
-                    <input type="text" id="id" name="id" class="form-control">
+                    <input type="text" id="id" name="uid" class="form-control">
                 </div>
                 <div class="form-group password-input-container">
                     <label for="password">비밀번호</label>
                     <input type="password" id="password" name="password" class="form-control">
-                    <i class="fas fa-eye-slash" id="passwordToggleIcon" onclick="togglePasswordVisibility()"></i>
+                    <i class="fas fa-eye-slash" id="passwordToggleIcon"></i>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">로그인</button>
+                <div class="mb-3">
+                    <input class="form-check-input" type="checkbox" id="remember-me" name="remember" />&nbsp;
+                    <label class="form-check-label" for="remember-me">로그인 상태 유지</label>
+                </div>                
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">로그인</button>
+                </div>
+                
             </form>
-            <p class="forgot-password">아이디 또는 비밀번호를 잊으셨나요? <a href="#" style="color: #007bff;">회원가입</a></p>
+            <p class="forgot-password">아직 회원이 아니신가요? <a href="{{ url('signup') }}" style="color: #007bff;">회원가입</a></p>
         </div>
     </div>
-
+    @if (\Session::has('success'))
+        <script>
+            alert('회원가입이 완료되었습니다.\n로그인 해주세요.');
+        </script>
+    @endif
     <script>
-        function togglePasswordVisibility() {
-            var passwordInput = document.getElementById("password");
-            var icon = document.getElementById("passwordToggleIcon");
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                icon.classList.remove("fa-eye-slash");
-                icon.classList.add("fa-eye");
-            } else {
-                passwordInput.type = "password";
-                icon.classList.remove("fa-eye");
-                icon.classList.add("fa-eye-slash");
-            }
-        }
+        
+        // function togglePasswordVisibility() {
+        //     var passwordInput = document.getElementById("password");
+        //     var icon = document.getElementById("passwordToggleIcon");
+        //     if (passwordInput.type === "password") {
+        //         passwordInput.type = "text";
+        //         icon.classList.remove("fa-eye-slash");
+        //         icon.classList.add("fa-eye");
+        //     } else {
+        //         passwordInput.type = "password";
+        //         icon.classList.remove("fa-eye");
+        //         icon.classList.add("fa-eye-slash");
+        //     }
+        // }
+
+        // function handleLogin(event) {
+        //     event.preventDefault();
+        //     var id = document.getElementById("id").value;
+        //     var password = document.getElementById("password").value;
+
+        //     if (id !== "expectedUsername" || password !== "expectedPassword") {
+        //         document.getElementById("loginAlert").classList.remove("d-none");
+        //     } else {
+        //         event.target.submit();
+        //     }
+        // }
     </script>
 </body>
 </html>

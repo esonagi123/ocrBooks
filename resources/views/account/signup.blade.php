@@ -20,73 +20,44 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 </head>
 <body>
-<div class="ms-4 me-4">
-    <div class="container">
-        <div class="row mt-4 text-center align-items-center">
-            <div class="col-8">
-                <div class="row textGrey fw-medium">
-                    환영합니다!
-                </div>
+<div class="mt-5 container">
+    <h2 class="centered-title">회원 가입</h2>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                {{ $error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <div class="col text-end">
-                <div class="dropdown">
-                    <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">마이페이지</a></li>
-                        <li><a class="dropdown-item" href="{{ url('m_login') }}">로그인</a></li>
-                    </ul>
-                </div>
-            </div>
+        @endforeach
+    @endif
+    <form id="signupForm" method="POST" action="{{ url('/signup/store') }}" class="mb-4">
+        @csrf
+        <div class="form-group">
+            <label for="ID"><span style="color: red;">*&nbsp;</span>아이디</label>
+            <input type="text" id="id" name="uid" class="form-control" value="{{ old('name') }}">
         </div>
-    </div>
-    <div class="container">
-        <h2 class="centered-title">회원 가입</h2>
-        <form id="signupForm" method="POST" action="#" class="mb-4">
-            @csrf
-            <div class="form-group">
-                <label for="ID">아이디</label>
-                <input type="text" id="id" name="id" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="e_mail">이메일</label>
-                <input type="text" id="e_mail" name="e_mail" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="name">이름</label>
-                <input type="text" id="name" name="name" class="form-control">
-            </div>
-            <div class="form-group password-input-container">
-                <label for="new_password">새로운 비밀번호</label>
-                <input type="password" id="new_password" name="new_password" class="form-control">
-                <i class="fas fa-eye-slash" id="passwordToggleIcon" onclick="togglePasswordVisibility()"></i>
-            </div>
-            <div class="form-group password-input-container">
-                <label for="confirm_password">새로운 비밀번호 확인</label>
-                <input type="password" id="confirm_password" name="confirm_password" class="form-control">
-                <i class="fas fa-eye-slash" id="confirmPasswordToggleIcon" onclick="toggleConfirmPasswordVisibility()"></i>
-            </div>
+        <div class="form-group">
+            <label for="e_mail"><span style="color: red;">*&nbsp;</span>이메일</label>
+            <input type="text" id="e_mail" name="email" class="form-control" value="{{ old('email') }}">
+        </div>
+        <div class="form-group">
+            <label for="name"><span style="color: red;">*&nbsp;</span>이름</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ old('name') }}">
+        </div>
+        <div class="form-group password-input-container">
+            <label for="new_password"><span style="color: red;">*&nbsp;</span>새로운 비밀번호</label>
+            <input type="password" id="new_password" name="password" class="form-control">
+            <i class="fas fa-eye-slash" id="passwordToggleIcon" onclick="togglePasswordVisibility()"></i>
+        </div>
+        <div class="form-group password-input-container">
+            <label for="confirm_password"><span style="color: red;">*&nbsp;</span>새로운 비밀번호 확인</label>
+            <input type="password" id="confirm_password" name="password_confirmation" class="form-control">
+            <i class="fas fa-eye-slash" id="confirmPasswordToggleIcon" onclick="toggleConfirmPasswordVisibility()"></i>
+        </div>
+        <div class="text-end">
             <button type="button" class="btn btn-primary btn-block" onclick="checkAndShowTermsModal()">가입</button>
-            <div id="alert" class="alert alert-dark d-none" role="alert">
-                모든 칸을 채워주세요!
-            </div>
-        </form>
-    </div>
-    <div style="margin-top:100px;margin-left:-5%;">
-        <div class="botFixedBar shadow-lg d-flex align-items-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <a href="{{ url('/') }}">
-                            <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
@@ -108,7 +79,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                <button type="button" class="btn btn-primary" onclick="submitForm()">동의하고 가입</button>
+                <button type="button" class="btn btn-primary" onclick="submitForm()">동의 및 가입</button>
             </div>
         </div>
     </div>
@@ -116,7 +87,7 @@
 
 <script>
     function togglePasswordVisibility() {
-        var passwordInput = document.getElementById("new_password");
+        var passwordInput = document.getElementById("password");
         var icon = document.getElementById("passwordToggleIcon");
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
@@ -143,31 +114,28 @@
         }
     }
 
-    function validateForm() {
-        var id = document.getElementById("id").value;
-        var email = document.getElementById("e_mail").value;
-        var name = document.getElementById("name").value;
-        var newPassword = document.getElementById("new_password").value;
-        var confirmPassword = document.getElementById("confirm_password").value;
-        if (id === "" || email === "" || name === "" || newPassword === "" || confirmPassword === "") {
-            document.getElementById("alert").classList.remove("d-none");
-            return false;
-        }
-        document.getElementById("alert").classList.add("d-none");
-        return true;
-    }
+    // 필요 없음!
+    // function validateForm() {
+    //     var id = document.getElementById("id").value;
+    //     var email = document.getElementById("e_mail").value;
+    //     var name = document.getElementById("name").value;
+    //     var newPassword = document.getElementById("new_password").value;
+    //     var confirmPassword = document.getElementById("confirm_password").value;
+    //     if (id === "" || email === "" || name === "" || newPassword === "" || confirmPassword === "") {
+    //         document.getElementById("alert").classList.remove("d-none");
+    //         return false;
+    //     }
+    //     document.getElementById("alert").classList.add("d-none");
+    //     return true;
+    // }
 
     function checkAndShowTermsModal() {
-        if (validateForm()) {
-            var termsModal = new bootstrap.Modal(document.getElementById('termsModal'), {});
-            termsModal.show();
-        }
+        var termsModal = new bootstrap.Modal(document.getElementById('termsModal'), {});
+        termsModal.show();
     }
 
     function submitForm() {
-        if (validateForm()) {
-            document.getElementById("signupForm").submit();
-        }
+        document.getElementById("signupForm").submit();
     }
 </script>
 </body>

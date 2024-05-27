@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Login;
 use App\Http\Controllers\Account\Join;
 use App\Http\Controllers\ocrAPI;
+use App\Http\Controllers\OCR\BooksCtrl;
 
 Route::get('/login', function () { // 로그인 view
     return view('account.login');
@@ -40,6 +41,7 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
         });
 
         Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload'); // OCR API 호출
+        Route::post('save_result', [BooksCtrl::class, 'store'])->name('save_result');
     });
 });
 

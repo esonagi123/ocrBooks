@@ -67,33 +67,5 @@
             alert('회원가입이 완료되었습니다.\n로그인 해주세요.');
         </script>
     @endif
-    <script>
-        
-        // function togglePasswordVisibility() {
-        //     var passwordInput = document.getElementById("password");
-        //     var icon = document.getElementById("passwordToggleIcon");
-        //     if (passwordInput.type === "password") {
-        //         passwordInput.type = "text";
-        //         icon.classList.remove("fa-eye-slash");
-        //         icon.classList.add("fa-eye");
-        //     } else {
-        //         passwordInput.type = "password";
-        //         icon.classList.remove("fa-eye");
-        //         icon.classList.add("fa-eye-slash");
-        //     }
-        // }
-
-        // function handleLogin(event) {
-        //     event.preventDefault();
-        //     var id = document.getElementById("id").value;
-        //     var password = document.getElementById("password").value;
-
-        //     if (id !== "expectedUsername" || password !== "expectedPassword") {
-        //         document.getElementById("loginAlert").classList.remove("d-none");
-        //     } else {
-        //         event.target.submit();
-        //     }
-        // }
-    </script>
 </body>
 </html>

@@ -16,7 +16,6 @@ class CreateBooksTable extends Migration
             $table->integer('total');
             $table->string('category');
             $table->string('memo');
-            $table->string('image');
             $table->timestamps();
         });
     }

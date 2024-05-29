@@ -88,6 +88,8 @@
                     <div class="progress-bar" role="progressbar" style="width: 1%; background: red;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
                     
                     </div>
+                    @else
+                        <p class="text-center">지출 목표를 설정해보세요.</p>
                     @endif
                 </div>
                 <div class="text-end mt-2" style="font-size: 13px; color:#7a7a7a;">

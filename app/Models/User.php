@@ -14,7 +14,7 @@ class User extends Model implements Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'uid', 'name','email', 'password', 'remember_token'
+        'uid', 'name','email', 'password', 'goal', 'remember_token'
     ];
 
     // Authenticatable 인터페이스의 메소드를 오버라이드

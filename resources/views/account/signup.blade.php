@@ -114,21 +114,6 @@
         }
     }
 
-    // 필요 없음!
-    // function validateForm() {
-    //     var id = document.getElementById("id").value;
-    //     var email = document.getElementById("e_mail").value;
-    //     var name = document.getElementById("name").value;
-    //     var newPassword = document.getElementById("new_password").value;
-    //     var confirmPassword = document.getElementById("confirm_password").value;
-    //     if (id === "" || email === "" || name === "" || newPassword === "" || confirmPassword === "") {
-    //         document.getElementById("alert").classList.remove("d-none");
-    //         return false;
-    //     }
-    //     document.getElementById("alert").classList.add("d-none");
-    //     return true;
-    // }
-
     function checkAndShowTermsModal() {
         var termsModal = new bootstrap.Modal(document.getElementById('termsModal'), {});
         termsModal.show();

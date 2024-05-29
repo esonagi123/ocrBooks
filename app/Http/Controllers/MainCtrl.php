@@ -37,10 +37,12 @@ class MainCtrl extends Controller
         ->get();
 
         // 목표 지출 퍼센트 구하기
-        $goal1 = $user->goal - $monthTotal;
-        $goal2 = $goal1 / $user->goal * 100;
-        $percent = 100 - $goal2;
-        $percent = 100 - $percent;
+        if ($user->goal >= 1) {
+            $goal1 = $user->goal - $monthTotal;
+            $goal2 = $goal1 / $user->goal * 100;
+            $percent = 100 - $goal2;
+            $percent = 100 - $percent;
+        }
 
         return view('main.index',[
             'month_total' => $monthTotalFormat, 

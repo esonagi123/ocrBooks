@@ -17,7 +17,8 @@ class MainCtrl extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        $percent = null;
+        
         // 이번 달 지출 구하기
         $currentMonthStart = Carbon::now()->startOfMonth();
         $currentMonthEnd = Carbon::now()->endOfMonth();

@@ -26,12 +26,6 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   </head>
   <body>
-    <style>
-      -ms-user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: -moz-none;
-      user-select: none;
-    </style>
     <div class="ms-4 me-4">
 
       <nav class="topBar">
@@ -76,7 +70,9 @@
                     </a>
                   </div>
                   <div class="col-4">
-                    <i class="fa-solid fa-chart-pie" style="font-size:25px; color: #82888c;"></i>
+                    <a href="{{ url('/uselist') }}">
+                    <i class="fas fa-history" style="font-size:25px; color: #82888c;"></i>
+                    </a>
                   </div>  
               </div>      
           </div>

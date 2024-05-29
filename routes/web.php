@@ -30,10 +30,6 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
             return view('books.scan');
         });
 
-        Route::get('/uselist', function () { 
-            return view('books.uselist');
-        });
-
         Route::get('/edit', function () { 
             return view('account.edit');
         });

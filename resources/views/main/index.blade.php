@@ -66,32 +66,34 @@
                     </div>
                     <div style="font-size: 13px; color:#7a7a7a;">
                         @if ($userData['goal'] == 0)
-                            설정이 필요합니다.
+                            
                         @else
                             {{ number_format($userData['goal'], 0, '.', ',') }}원
                         @endif
                     </div>
                 </div>
+                @if ($userData['goal'] == 0)
+                <p class="text-center" style="font-size:13px; margin: 0">지출 목표 금액이 설정되지 않았습니다.</p>
+                @else                   
                 <div class="progress">
-                    @if ($percent >= 50)
-                    <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: green;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                        @if ($percent >= 50)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: green;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                            
+                        </div>
+                        @elseif ($percent > 10)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: #f6e45d;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                            
+                        </div>
+                        @elseif ($percent >= 1)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: red;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                        @elseif ($percent <= 0)
+                        <div class="progress-bar" role="progressbar" style="width: 1%; background: red;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
                         
-                    </div>
-                    @elseif ($percent > 10)
-                    <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: #f6e45d;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
-                        
-                    </div>
-                    @elseif ($percent >= 1)
-                    <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: red;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
-                    </div>
-                    @elseif ($percent <= 0)
-                    <div class="progress-bar" role="progressbar" style="width: 1%; background: red;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
-                    
-                    </div>
-                    @else
-                        <p class="text-center">지출 목표를 설정해보세요.</p>
-                    @endif
+                        </div>
+                        @endif
                 </div>
+                @endif
                 <div class="text-end mt-2" style="font-size: 13px; color:#7a7a7a;">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#goalSet"><i class="fas fa-cog"></i> 설정</a>
                 </div>

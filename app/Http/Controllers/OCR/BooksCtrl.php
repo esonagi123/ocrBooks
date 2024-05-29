@@ -14,6 +14,14 @@ use App\Models\Books;
 
 class BooksCtrl extends Controller
 {
+
+    public function index()
+    {
+        $user = Auth::user();
+        $datas = Books::where('uid', '=', $user->uid)->get();
+        return view('books.uselist', ['datas' => $datas]);
+    }
+
     public function store(Request $request)
     {
         foreach ($request->number as $key => $number) {

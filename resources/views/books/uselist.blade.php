@@ -9,6 +9,8 @@
             <button class="search-btn fs-6" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
+            <input style="display: inline;" type="date" placeholder="시작"/> ~ 
+            <input style="display: inline;" type="date" placeholder="끝"/>
         </form>
     </div>
 
@@ -47,48 +49,15 @@
 <!-- 리스트 맵핑 -->
 <script>
     const data = [
+        @foreach ($datas as $data)
         {
-            date: '4.15',
-            shop: '멍멍냥냥',
-            total: '3,800',
-            category: 'fa-basket-shopping',
-            memo: '집가는 길에 강쥐 장난감 사들고 귀가!'
+            date: '{{ $data->date }}',
+            shop: '{{ $data->shop }}',
+            total: '{{ $data->total }}',
+            category: '{{ $data->category }}',
+            memo: '{{ $data->memo }}'
         },
-        {
-            date: '4.12',
-            shop: '참치연어',
-            total: '13,000',
-            category: 'fa-utensils',
-            memo: '연어초밥 얌'
-        },
-        {
-            date: '4.12',
-            shop: 'GS 칼텍스',
-            total: '70,000',
-            category: 'fa-gas-pump',
-            memo: '주유'
-        },
-        {
-            date: '4.11',
-            shop: '교모문구',
-            total: '43,000',
-            category: 'fa-book',
-            memo: '천개의 파랑, 침묵의 봄   책값 너무 올랐어 ㅜ'
-        },
-        {
-            date: '4.11',
-            shop: '3월 교통비 출금',
-            total: '83,400',
-            category: 'fa-bus',
-            memo: '3월 교통비'
-        },
-        {
-            date: '4.10',
-            shop: '축의금',
-            total: '100,000',
-            category: 'fa-ellipsis',
-            memo: '뫄뫄 결혼식'
-        }
+        @endforeach
     ];
 
     const accordionItems = data.map((item, index) => `

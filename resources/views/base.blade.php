@@ -26,6 +26,12 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   </head>
   <body>
+    <style>
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: -moz-none;
+      user-select: none;
+    </style>
     <div class="ms-4 me-4">
 
       <nav class="topBar">

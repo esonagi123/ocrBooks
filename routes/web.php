@@ -25,9 +25,7 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
         Route::get('/', function () {
             return view('main.index');
         });
-
-        Route::get('/logout', [Login::class, 'logout']);
-
+        
         Route::get('/scan', function () {
             return view('books.scan');
         });
@@ -40,8 +38,10 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
             return view('account.edit');
         });
 
+        Route::get('/uselist', [BooksCtrl::class, 'index'])->name('books.index');
+        Route::get('/logout', [Login::class, 'logout']); // 로그아웃
         Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload'); // OCR API 호출
-        Route::post('save_result', [BooksCtrl::class, 'store'])->name('save_result');
+        Route::post('save_result', [BooksCtrl::class, 'store'])->name('save_result'); // OCR 결과 저장
     });
 });
 

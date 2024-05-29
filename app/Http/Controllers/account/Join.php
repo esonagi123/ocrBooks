@@ -60,6 +60,7 @@ class Join extends Controller
         $user->uid = $request->input('uid');
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->goal = 0;
     
         // 비밀번호를 해시화하여 저장
         $hashedPassword = bcrypt($request->input('password'));

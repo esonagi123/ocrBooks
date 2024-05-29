@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
   </head>
   <body>
-    <div class="ms-4 me-4">
+    <div class="ms-3 me-3">
 
       <nav class="topBar">
       <div class="container">
@@ -51,7 +51,7 @@
           </div>
         </div>
       </nav>
-      <div class="page p-1">
+      <div class="page">
         @yield('content')
       </div>
     </div>
@@ -66,7 +66,7 @@
                 </div>              
                   <div class="col-4">
                     <a href="{{ url('/') }}">
-                      <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #9b7aff;"></i>
+                      <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #7a8cff;"></i>
                     </a>
                   </div>
                   <div class="col-4">

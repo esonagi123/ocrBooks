@@ -22,6 +22,7 @@ class BooksCtrl extends Controller
         return view('books.uselist', ['datas' => $datas]);
     }
 
+    // 검토 후 저장
     public function store(Request $request)
     {
         foreach ($request->number as $key => $number) {
@@ -30,7 +31,11 @@ class BooksCtrl extends Controller
             $receipt->uid = $request->input("uid");
             $receipt->shop = $request->input("shop{$number}");
             $receipt->date = $request->input("date{$number}");
-            $receipt->total = $request->input("total{$number}");
+
+            // 콤마 제거 후 정수형으로 변환
+            $total = str_replace(',', '', $request->input("total{$number}"));
+            $receipt->total = intval($total);
+            
             $receipt->category = $request->input("category{$number}");
             $receipt->memo = $request->input("memo{$number}");
             

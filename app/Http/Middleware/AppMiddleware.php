@@ -18,6 +18,7 @@ class AppMiddleware
                 'uid' => $user->uid,
                 'name' => $user->name,
                 'email' => $user->email,
+                'goal' => $user->goal,
             ];
 
             View::share('userData', $userData);

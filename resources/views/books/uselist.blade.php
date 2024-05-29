@@ -9,8 +9,6 @@
             <button class="search-btn fs-6" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <input style="display: inline;" type="date" placeholder="시작"/> ~ 
-            <input style="display: inline;" type="date" placeholder="끝"/>
         </form>
     </div>
 
@@ -50,8 +48,15 @@
 <script>
     const data = [
         @foreach ($datas as $data)
+        @php
+            $dateTime = new \DateTime($data->date);
+            $month = (int) $dateTime->format('m');
+            $day = (int) $dateTime->format('d');
+            $date = $month . '월 ' . $day . '일';
+        @endphp
         {
-            date: '{{ $data->date }}',
+        
+            date: '{{ $date }}',
             shop: '{{ $data->shop }}',
             total: '{{ $data->total }}',
             category: '{{ $data->category }}',

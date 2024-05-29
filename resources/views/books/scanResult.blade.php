@@ -13,7 +13,7 @@
                 <h5 class="card-header">영수증 {{ $data['number'] }}</h5>
                 <input type="hidden" name="number[]" value="{{ $data['number'] }}"/>
                 <div class="card-body">
-                    <img style="width: 50%;" class="img-fluid d-flex mx-auto my-4 rounded" src="{{ $data['image'] }}">
+                    <img style="width: 100%;" class="img-fluid d-flex mx-auto my-4 rounded" src="{{ $data['image'] }}">
                     <div class="mb-3">
                         <label for="shop" class="form-label">상호</label>
                         <input type="text" class="form-control" id="shop" name="shop{{ $data['number'] }}" value="{{ $data['shop'] }}">

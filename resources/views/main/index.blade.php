@@ -1,7 +1,47 @@
 @extends('base')
-
 @section('content')
+<style>
+    .transaction {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        margin: auto;
+    }
+    .date, .balance {
+        font-size: 0.9rem;
+    }
+    .info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .logo {
+        width: 30px;
+        height: 30px;
+        background-color: #f6c05d;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    .text {
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+    .time {
+        font-size: 0.9rem;
+    }
+    .amount {
+        font-size: 1.25rem;
+        color: #ff424d;
+        text-align: right;
+    }
+</style>
+
 <div class="container mt-3">
+
     <div class="row">
         <div class="col">
             <div class="">
@@ -10,16 +50,25 @@
                     이번 달 지출
                 </div>
                 <div class="ms-2 fw-bold fs-2">
-                    100,000원
+                    {{ $month_total }} 원
                 </div>
             </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="container mt-4">
     <div class="row">
+        <div class="col">
+            <div class="shadow-lg p-3 mainBtn mainBanner">
+                <div class="ms-2 mt-3 fw-medium">
+                    저번 달 지출
+                </div>
+                <div class="ms-2 fw-bold fs-2">
+                    {{ $month_total }} 원
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class="row mt-4">
         <div class="col text-center">
             <a class="no-deco" href="#">
                 <div class="shadow-lg card mainBtn d-flex justify-content-center">
@@ -37,79 +86,23 @@
             </a>
         </div>
     </div>
-    <div class="row mt-2">
-        <div class="col text-center">
-            <a class="no-deco" href="#">
-                <div class="shadow-lg card mainBtn d-flex justify-content-center">
-                    <i class="fa-solid fa-book-open" style="font-size: 40px; color: #3485e2;"></i>
-                    <div class="mt-2 fw-semibold">...</div>
-                </div>
-            </a>
+
+
+    <!-- 최근 내역 -->
+    <div class="mt-5" style="margin-bottom: 100px;">
+        <div class="fw-bold fs-4">
+            최근 내역
         </div>
-        <div class="col text-center align-items-center">
-            <a class="no-deco" href="#">
-                <div class="shadow-lg card mainBtn d-flex justify-content-center">
-                    <i class="fa-solid fa-sliders" style="font-size: 40px; color: #a723ff;"></i>
-                    <div class="mt-2 fw-semibold">...</div>
-                </div>
-            </a>
+        @foreach($recents as $recent)
+        <div class="mt-3 shadow-lg transaction">
+            <div class="info">
+                <div class="logo">e</div>
+                <div class="text">{{ $recent->shop }}</div>
+                <div class="time">5월 28일</div>
+            </div>
+            <div class="amount">-14,000원</div>
         </div>
+        @endforeach
     </div>
 </div>
-
-<!-- 최근 내역 -->
-<div class="mt-2">
-    <div class="fw-bold fs-4">
-        최근 내역
-    </div>
-    <div class="row mt-3 mainList shadow-lg align-items-center">
-        <div class="col-3 d-flex justify-content-center">
-            <div class="">
-                <div class="ms-2 fw-medium">
-                <i class="fa-solid fa-basket-shopping" style="font-size: 25px; color: #fd8535;"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="">
-                <div class="ms-2 fw-medium">
-                    내역 1
-                </div>
-            </div>
-        </div>        
-    </div>
-    <div class="row mt-3 mainList shadow-lg align-items-center">
-        <div class="col-3 d-flex justify-content-center">
-            <div class="">
-                <div class="ms-2 fw-medium">
-                <i class="fa-solid fa-gas-pump" style="font-size: 25px; color: #74C0FC;"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="">
-                <div class="ms-2 fw-medium">
-                    내역 2
-                </div>
-            </div>
-        </div>        
-    </div>
-    <div class="row mt-3 mainList shadow-lg align-items-center">
-        <div class="col-3 d-flex justify-content-center">
-            <div class="">
-                <div class="ms-2 fw-medium">
-                <i class="fa-solid fa-utensils" style="font-size: 25px; color: #fe2062;"></i>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="">
-                <div class="ms-2 fw-medium">
-                    내역 3
-                </div>
-            </div>
-        </div>        
-    </div>    
-</div>
-
 @endsection()

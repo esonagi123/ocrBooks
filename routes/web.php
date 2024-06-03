@@ -39,6 +39,10 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
             return view('account.edit');
         });
 
+        Route::get('/mypage', function () { 
+            return view('mypage');
+        });
+
         Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload'); // OCR API 호출
     });
 });

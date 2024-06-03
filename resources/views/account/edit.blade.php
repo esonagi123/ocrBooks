@@ -45,15 +45,15 @@
             @csrf
             <div class="form-group">
                 <label for="ID">아이디</label>
-                <input type="text" id="id" name="id" class="form-control" value="---" readonly>
+                <input type="text" id="id" name="id" class="form-control">
             </div>
             <div class="form-group">
                 <label for="e_mail">이메일</label>
-                <input type="text" id="e_mail" name="e_mail" class="form-control">
+                <input type="e_mail" id="e_mail" name="e_mail" class="form-control">
             </div>
             <div class="form-group">
                 <label for="name">이름</label>
-                <input type="text" id="name" name="name" class="form-control">
+                <input type="text" id="name" name="name" class="form-control" value="{{ $userData['name'] }}" readonly>
             </div>
             <div class="form-group password-input-container">
                 <label for="new_password">새로운 비밀번호</label>

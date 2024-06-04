@@ -50,7 +50,7 @@
                     이번 달 지출
                 </div>
                 <div class="ms-2 fw-bold fs-2">
-                    {{ $month_total }} 원
+                    {{ $monthTotalFormat }} 원
                 </div>
             </div>
             </div>
@@ -62,9 +62,9 @@
             <div class="shadow-lg p-3 mainGoalDiv">
                 <div class="d-flex justify-content-between">
                     <div class="ms-2 mb-1 fw-medium">
-                        지출 목표 <i class="fas fa-splotch" style="color: #FFD43B;"></i>
+                        지출 한도
                     </div>
-                    <div style="font-size: 13px; color:#7a7a7a;">
+                    <div class="me-2" style="font-size: 13px; color:#7a7a7a;">
                         @if ($userData['goal'] == 0)
                             
                         @else
@@ -73,30 +73,35 @@
                     </div>
                 </div>
                 @if ($userData['goal'] == 0)
-                <p class="text-center" style="font-size:13px; margin: 0">지출 목표 금액이 설정되지 않았습니다.</p>
-                @else                   
+                    <p class="text-center" style="color:#7a7a7a; font-size:13px; margin: 0">지출 목표 금액이 설정되지 않았습니다.</p>
+                @else
                 <div class="progress">
-                        @if ($percent >= 50)
-                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: green;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
-                            
-                        </div>
-                        @elseif ($percent > 10)
-                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: #f6e45d;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
-                            
-                        </div>
-                        @elseif ($percent >= 1)
-                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: red;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
-                        </div>
-                        @elseif ($percent <= 0)
-                        <div class="progress-bar" role="progressbar" style="width: 1%; background: red;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
-                        
-                        </div>
-                        @endif
+                    @if ($percent >= 100)
+                    <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: #7a8cff;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">100%</div>
+                    @elseif ($percent >= 60)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: #7a8cff;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    @elseif ($percent > 15)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: #f6e45d;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    @elseif ($percent >= 1)
+                        <div class="progress-bar" role="progressbar" style="width: {{ $percent }}%; background: red;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    @elseif ($percent <= 0)
+                        <div class="progress-bar" role="progressbar" style="width: 1%; background: red;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                    @endif
                 </div>
                 @endif
-                <div class="text-end mt-2" style="font-size: 13px; color:#7a7a7a;">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#goalSet"><i class="fas fa-cog"></i> 설정</a>
-                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="mt-2 ms-2" style="font-size: 13px; color:#7a7a7a;">
+                        @if ($userData['goal'] == 0)
+                        @elseif ($userData['goal'] - $monthTotal < 0)
+                            한도 초과!! 🤯
+                        @else
+                            {{ number_format($userData['goal'] - $monthTotal, 0, '.', ',') }}원 남았습니다.
+                        @endif
+                    </div>
+                    <div class="text-end me-2 mt-2" style="font-size: 13px; color:#7a7a7a;">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#goalSet"><i class="fas fa-cog"></i> 설정</a>
+                    </div>
+                </div>                
             </div>
         </div>
     </div>

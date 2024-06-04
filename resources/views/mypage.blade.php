@@ -1,7 +1,8 @@
 @extends('base')
 
 @section('content')
-
+<link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+<link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6 offset-md-3 col-12">

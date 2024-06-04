@@ -33,17 +33,14 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
             return view('account.edit');
         });
 
-<<<<<<< HEAD
         Route::get('/mypage', function () { 
             return view('mypage');
         });
 
-=======
 
         Route::get('/', [MainCtrl::class, 'index'])->name('main.index');
         Route::get('/uselist', [BooksCtrl::class, 'index'])->name('books.index');
         Route::get('/logout', [Login::class, 'logout']); // 로그아웃
->>>>>>> origin/dev
         Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload'); // OCR API 호출
         Route::post('save_result', [BooksCtrl::class, 'store'])->name('save_result'); // OCR 결과 저장
 

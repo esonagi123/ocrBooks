@@ -15,7 +15,7 @@ class CreateBooksTable extends Migration
             $table->string('shop');
             $table->integer('total');
             $table->string('category');
-            $table->string('memo');
+            $table->string('memo')->nullable();
             $table->timestamps();
         });
     }

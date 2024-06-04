@@ -46,7 +46,8 @@ class MainCtrl extends Controller
         }
 
         return view('main.index',[
-            'month_total' => $monthTotalFormat, 
+            'monthTotalFormat' => $monthTotalFormat, 
+            'monthTotal' =>$monthTotal,
             'recents' => $recents,
             'percent' => $percent,
         ]);

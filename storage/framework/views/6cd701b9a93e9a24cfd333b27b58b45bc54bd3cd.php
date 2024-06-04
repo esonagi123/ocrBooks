@@ -16,14 +16,13 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <!-- CSS 로드 -->
-    <link rel="stylesheet" href="{{ asset('css/core.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" /> --}}
+    <link rel="stylesheet" href="<?php echo e(asset('css/core.css')); ?>">
+    
   
       <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+    <link rel="stylesheet" href="<?php echo e(asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')); ?>" />
 
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <link rel="stylesheet" href="<?php echo e(asset('/assets/vendor/libs/apex-charts/apex-charts.css')); ?>" />
   </head>
   <body>
     <div class="ms-3 me-3">
@@ -36,15 +35,15 @@
                     환영합니다!
                   </div>
                   <div class="row fw-bold">
-                    {{ $userData['name'] }} 님
+                    <?php echo e($userData['name']); ?> 님
                   </div>
               </div>
               <div class="col text-end">
                   <div class="dropdown">
-                    <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="avatar" src="<?php echo e(asset('img/avatar0.png')); ?>" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url('/mypage') }}">마이페이지</a></li>
-                      <li><a class="dropdown-item" href="{{ url('/logout') }}">로그아웃</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(url('/mypage')); ?>">마이페이지</a></li>
+                      <li><a class="dropdown-item" href="<?php echo e(url('/logout')); ?>">로그아웃</a></li>
                     </ul>                  
                   </div>
                 </div>
@@ -52,7 +51,7 @@
         </div>
       </nav>
       <div class="page">
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
       </div>
     </div>
       <div style="margin-top:100px;">
@@ -60,17 +59,17 @@
           <div class="container">
               <div class="row">
                 <div class="col-4">
-                  <a href="{{ url('/') }}">
+                  <a href="<?php echo e(url('/')); ?>">
                     <i class="fas fa-arrow-left" style="font-size:25px; color: #82888c;"></i>
                   </a>
                 </div>              
                   <div class="col-4">
-                    <a href="{{ url('/') }}">
+                    <a href="<?php echo e(url('/')); ?>">
                       <i class="fa-solid fa-house-chimney" style="font-size:25px; color: #7a8cff;"></i>
                     </a>
                   </div>
                   <div class="col-4">
-                    <a href="{{ url('/uselist') }}">
+                    <a href="<?php echo e(url('/uselist')); ?>">
                     <i class="fas fa-history" style="font-size:25px; color: #82888c;"></i>
                     </a>
                   </div>  
@@ -79,4 +78,4 @@
         </div>
       </div>
   </body>
-</html>
+</html><?php /**PATH C:\xampp\ocrBooks\resources\views/base.blade.php ENDPATH**/ ?>

@@ -1,44 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 부트스트랩 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/649102945e.js" crossorigin="anonymous"></script>
-    <!-- ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- CSS 로드 -->
-    <link rel="stylesheet" href="{{ asset('css/core.css') }}?v={{ time() }}">
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
-</head>
-<body>
-<div class="ms-4 me-4">
-    <div class="container">
-        <div class="row mt-4 text-center align-items-center">
-            <div class="col-8">
-                <div class="row textGrey fw-medium">
-                    환영합니다!
-                </div>
-            </div>
-            <div class="col text-end">
-                <div class="dropdown">
-                    <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">마이페이지</a></li>
-                        <li><a class="dropdown-item" href="{{ url('m_login') }}">로그인</a></li>
-                    </ul>                  
-                </div>
-            </div>
-        </div>
-    </div>
+@extends('base')
+
+@section('content')
+<link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+<link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6 offset-md-3 col-12">
@@ -76,7 +40,7 @@
                             <li>이름: {{ Auth::user()->name }}</li>
                             <li>이메일 주소: {{ Auth::user()->email }}</li>
                         </ul>
-                        <a href="{{ route('user.edit') }}" class="btn btn-primary">회원정보 수정</a>
+                        <a href="{{ url('edit') }}" class="btn btn-primary">회원정보 수정</a>
                     @else
                         <p class="small text-muted">로그인이 필요합니다.</p>
                     @endif
@@ -93,7 +57,7 @@
                 </div>
                 <div class="card-body">
                     @if(Auth::check())
-                        <form method="POST" action="{{ route('logout') }}">
+                        <form method="POST" action="{{ url('logout') }}">
                             @csrf
                             <button type="submit" class="btn btn-danger">로그아웃</button>
                         </form>
@@ -144,5 +108,4 @@
         }
     }
 </script>
-</body>
-</html>
+@endsection()

@@ -33,6 +33,10 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
             return view('account.edit');
         });
 
+        Route::get('/mypage', function () { 
+            return view('mypage');
+        });
+
 
         Route::get('/', [MainCtrl::class, 'index'])->name('main.index');
         Route::get('/uselist', [BooksCtrl::class, 'index'])->name('books.index');

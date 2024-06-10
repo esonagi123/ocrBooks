@@ -43,7 +43,7 @@
                   <div class="dropdown">
                     <img class="avatar" src="{{ asset('img/avatar0.png') }}" alt="프로필" data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="{{ url('/mypage') }}">마이페이지</a></li>
+                      <li><a class="dropdown-item" href="{{ url('/edit') }}">회원정보수정</a></li>
                       <li><a class="dropdown-item" href="{{ url('/logout') }}">로그아웃</a></li>
                     </ul>                  
                   </div>

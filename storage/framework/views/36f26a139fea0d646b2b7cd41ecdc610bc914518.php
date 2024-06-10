@@ -1,8 +1,8 @@
-@extends('base')
 
-@section('content')
-<link rel="stylesheet" href="{{ asset('/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
-<link rel="stylesheet" href="{{ asset('/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+
+<?php $__env->startSection('content'); ?>
+<link rel="stylesheet" href="<?php echo e(asset('/assets/vendor/css/core.css')); ?>" class="template-customizer-core-css" />
+<link rel="stylesheet" href="<?php echo e(asset('/assets/vendor/css/theme-default.css')); ?>" class="template-customizer-theme-css" />
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6 offset-md-3 col-12">
@@ -34,16 +34,16 @@
                     개인 정보 수정
                 </div>
                 <div class="card-body">
-                    @if(Auth::check())
+                    <?php if(Auth::check()): ?>
                         <p>사용자 정보:</p>
                         <ul class="list-unstyled">
-                            <li>이름: {{ Auth::user()->name }}</li>
-                            <li>이메일 주소: {{ Auth::user()->email }}</li>
+                            <li>이름: <?php echo e(Auth::user()->name); ?></li>
+                            <li>이메일 주소: <?php echo e(Auth::user()->email); ?></li>
                         </ul>
-                        <a href="{{ url('edit') }}" class="btn btn-primary">회원정보 수정</a>
-                    @else
+                        <a href="<?php echo e(url('edit')); ?>" class="btn btn-primary">회원정보 수정</a>
+                    <?php else: ?>
                         <p class="small text-muted">로그인이 필요합니다.</p>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -56,14 +56,14 @@
                     로그아웃
                 </div>
                 <div class="card-body">
-                    @if(Auth::check())
-                        <form method="POST" action="{{ url('logout') }}">
-                            @csrf
+                    <?php if(Auth::check()): ?>
+                        <form method="POST" action="<?php echo e(url('logout')); ?>">
+                            <?php echo csrf_field(); ?>
                             <button type="submit" class="btn btn-danger" >로그아웃</button>
                         </form>
-                    @else
+                    <?php else: ?>
                         <p class="small text-muted">로그인이 필요합니다.</p>
-                    @endif
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -108,4 +108,6 @@
         }
     }
 </script>
-@endsection()
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('base', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\ocrBooks\resources\views/mypage.blade.php ENDPATH**/ ?>

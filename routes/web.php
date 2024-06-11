@@ -29,6 +29,10 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
             return view('books.scan');
         });
 
+        Route::get('/create', function () {
+            return view('books.create');
+        });
+
         Route::get('/edit', function () { 
             return view('account.edit');
         });
@@ -39,7 +43,7 @@ Route::middleware(['app'])->group(function () // 사용자 정보를 가져오�
         Route::get('/logout', [Login::class, 'logout']); // 로그아웃
         Route::post('api/requestOCR', [ocrAPI::class, 'upload'])->name('upload'); // OCR API 호출
         Route::post('save_result', [BooksCtrl::class, 'store'])->name('save_result'); // OCR 결과 저장
-
+        Route::post('save_result2', [BooksCtrl::class, 'store2'])->name('save_result2'); // OCR 결과 저장
         Route::post('/setGoal', [MainCtrl::class, 'setGoal'])->name('setGoal'); // 목표 지출 설정
     });
 });

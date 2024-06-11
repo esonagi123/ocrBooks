@@ -76,9 +76,48 @@ class ocrAPI extends Controller
           if($status_code == 200) {
             // JSON 문자열을 PHP 배열로 변환
             $datas[] = json_decode($response, true);
-          
+            
+            // 날짜 형식 통일하는 부분
+            $dateString = $datas[count($datas)-1]['images'][0]['fields'][1]['inferText'];
+
+            // DateTime 객체로 변환
+            try {
+                // 여러 날짜 형식을 처리할 수 있도록 설정
+                $dateFormats = [
+                    'Y년n월j일',
+                    'Y년m월d일',
+                    'y년n월j일',
+                    'y년m월d일',
+                    'y-m-d',
+                    'Y/m/d',
+                    'y/m/d',
+                    'Y-m-d'
+                ];
+                
+                $date = false;
+                foreach ($dateFormats as $format) {
+                    $date = \DateTime::createFromFormat($format, $dateString);
+                    if ($date !== false) {
+                        break;
+                    }
+                }
+            
+                if ($date === false) {
+                    throw new \Exception("지원되지 않는 날짜 형식입니다: " . $dateString);
+                }
+                
+                // 형식 포맷
+                $formattedDate = $date->format('Y-m-d');
+                $datas[count($datas)-1]['date'] = $formattedDate;
+            
+            } catch (\Exception $e) {
+                echo "날짜 변환 중 오류 발생: " . $e->getMessage();
+                $datas[count($datas)-1]['date'] = '2024-01-01';
+            }
+            
+
             $datas[count($datas)-1]['shop'] = $datas[count($datas)-1]['images'][0]['fields'][0]['inferText']; // 상호명
-            $datas[count($datas)-1]['date'] = $datas[count($datas)-1]['images'][0]['fields'][1]['inferText']; // 날짜
+            // $datas[count($datas)-1]['date'] = $datas[count($datas)-1]['images'][0]['fields'][1]['inferText']; // 날짜
             $datas[count($datas)-1]['total'] = $datas[count($datas)-1]['images'][0]['fields'][2]['inferText']; // 총액
             $datas[count($datas)-1]['image'] = $image_url;
             $datas[count($datas)-1]['number'] = count($datas);

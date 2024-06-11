@@ -178,7 +178,7 @@
         @foreach($recents as $recent)
         <div class="mt-3 shadow-lg transaction">
             <div class="info">
-                <div class="logo">e</div>
+                <div class="logo"><i class="category fa-solid {{ $recent->category }}"></i></div>
                 <div class="text">{{ $recent->shop }}</div>
                 @php
                     $dateTime = new \DateTime($recent->date);

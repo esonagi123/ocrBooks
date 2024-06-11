@@ -30,12 +30,12 @@
                         <label for="category" class="form-label">카테고리</label>
                         <select class="form-select" name="category{{ $data['number'] }}" id="category">
                           <option selected="">선택하세요</option>
-                          <option value="1">쇼핑</option>
-                          <option value="2">식비</option>
-                          <option value="3">교통비</option>
-                          <option value="4">문화</option>
-                          <option value="5">주유</option>
-                          <option value="6">기타</option>
+                          <option value="fa-basket-shopping">쇼핑</option>
+                          <option value="fa-utensils">식비</option>
+                          <option value="fa-bus">교통비</option>
+                          <option value="fa-book">문화</option>
+                          <option value="fa-gas-pump">주유</option>
+                          <option value="fa-ellipsis">기타</option>
                         </select>
                     </div>                    
                     <div class="mb-3">

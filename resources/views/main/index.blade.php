@@ -147,7 +147,7 @@
 
     <div class="row mt-3">
         <div class="col text-center">
-            <a class="no-deco" href="#">
+            <a class="no-deco" href="{{ url('/create') }}">
                 <div class="shadow-lg card mainBtn d-flex justify-content-center">
                     <i class="fa-solid fa-pen" style="font-size: 40px; color: #ff6b89;"></i>
                     <div class="mt-2 fw-semibold textGrey">직접 작성</div>
@@ -178,7 +178,7 @@
         @foreach($recents as $recent)
         <div class="mt-3 shadow-lg transaction">
             <div class="info">
-                <div class="logo">e</div>
+                <div class="logo"><i class="category fa-solid {{ $recent->category }}"></i></div>
                 <div class="text">{{ $recent->shop }}</div>
                 @php
                     $dateTime = new \DateTime($recent->date);

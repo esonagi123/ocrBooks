@@ -30,14 +30,9 @@
 
       <nav class="topBar">
       <div class="container">
-          <div class="row text-center align-items-center" >
+          <div class="row text-start align-items-center" >
               <div class="col-8">
-                  <div class="row textGrey fw-medium">
-                    환영합니다!
-                  </div>
-                  <div class="row fw-bold">
-                    {{ $userData['name'] }} 님
-                  </div>
+                <img src="{{ asset('/img/logo.png') }}" style="width: 100px;">
               </div>
               <div class="col text-end">
                   <div class="dropdown">
